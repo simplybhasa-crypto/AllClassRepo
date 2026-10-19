@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arnav | Snake Game</title>
+    <meta
+      name="description"
+      content="A simple browser Snake game built by Arnav for the class web lab."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="back-link" href="index.html">← Back to class gallery</a>
+        <span class="project-badge">Arnav • Snake Game</span>
+      </header>
+
+      <main class="project-layout">
+        <section class="game-panel" aria-labelledby="game-title">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Student project</p>
+              <h1 id="game-title">Snake</h1>
+            </div>
+            <div class="scoreboard" aria-live="polite">
+              <div class="score-box">
+                <span class="label">Score</span>
+                <strong id="score">0</strong>
+              </div>
+              <div class="score-box">
+                <span class="label">Best</span>
+                <strong id="best-score">0</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-controls">
+            <button id="start-btn" type="button">Start</button>
+            <button id="pause-btn" class="secondary" type="button">Pause</button>
+            <button id="restart-btn" class="ghost" type="button">Restart</button>
+          </div>
+
+          <div id="game-board" class="game-board" aria-label="Snake game board"></div>
+
+          <div class="game-footer">
+            <p id="status-text">Press Start to begin.</p>
+            <div class="touch-controls" aria-label="Touch controls">
+              <button type="button" data-key="ArrowUp">▲</button>
+              <div class="touch-middle-row">
+                <button type="button" data-key="ArrowLeft">◀</button>
+                <button type="button" data-key="ArrowDown">▼</button>
+                <button type="button" data-key="ArrowRight">▶</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="info-panel">
+          <h2>About this project</h2>
+          <p>
+            This little game is a classic snake challenge: eat the glowing fruit,
+            grow longer, and avoid crashing into the walls or yourself.
+          </p>
+          <ul>
+            <li>Simple browser game built with HTML, CSS, and JavaScript</li>
+            <li>Keyboard controls: arrow keys or WASD</li>
+            <li>Works on desktop and mobile-friendly touch buttons</li>
+          </ul>
+          <div class="mini-card">
+            <span class="mini-label">Goal</span>
+            <strong>Beat your best score</strong>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
