@@ -5,6 +5,7 @@ const statusText = document.getElementById("status-text");
 const startBtn = document.getElementById("start-btn");
 const pauseBtn = document.getElementById("pause-btn");
 const restartBtn = document.getElementById("restart-btn");
+const gameOverOverlay = document.getElementById("game-over-overlay");
 
 const gridSize = 16;
 const initialSnake = [
@@ -18,12 +19,31 @@ let food = { x: 10, y: 10 };
 let direction = { x: 1, y: 0 };
 let nextDirection = { x: 1, y: 0 };
 let score = 0;
-let bestScore = Number(localStorage.getItem("arnav-snake-best") || 0);
+let bestScore = 0;
 let isRunning = false;
 let isPaused = false;
 let intervalId = null;
+let newBestTimer = null;
 
 const cells = [];
+const newBestBadge = document.getElementById("new-best");
+
+function getSavedBestScore() {
+  try {
+    const storedValue = Number(localStorage.getItem("arnav-snake-best") || 0);
+    return Number.isFinite(storedValue) ? storedValue : 0;
+  } catch (error) {
+    return 0;
+  }
+}
+
+function saveBestScore(value) {
+  try {
+    localStorage.setItem("arnav-snake-best", String(value));
+  } catch (error) {
+    // Ignore storage errors in private browsing or restricted settings.
+  }
+}
 
 function buildBoard() {
   board.innerHTML = "";
@@ -39,6 +59,24 @@ function buildBoard() {
 
 function updateBestScore() {
   bestScoreLabel.textContent = String(bestScore);
+}
+
+function triggerNewBestAnimation() {
+  if (!newBestBadge) {
+    return;
+  }
+
+  newBestBadge.classList.remove("show");
+  void newBestBadge.offsetWidth;
+  newBestBadge.classList.add("show");
+
+  if (newBestTimer) {
+    clearTimeout(newBestTimer);
+  }
+
+  newBestTimer = setTimeout(() => {
+    newBestBadge.classList.remove("show");
+  }, 1500);
 }
 
 function getIndex(x, y) {
@@ -83,12 +121,25 @@ function updateStatus(message) {
   statusText.textContent = message;
 }
 
+function showGameOver() {
+  if (gameOverOverlay) {
+    gameOverOverlay.classList.add("show");
+  }
+}
+
+function hideGameOver() {
+  if (gameOverOverlay) {
+    gameOverOverlay.classList.remove("show");
+  }
+}
+
 function resetGame() {
   snake = initialSnake.map((segment) => ({ ...segment }));
   direction = { x: 1, y: 0 };
   nextDirection = { x: 1, y: 0 };
   score = 0;
   scoreLabel.textContent = "0";
+  hideGameOver();
   randomFoodPosition();
   drawBoard();
   updateStatus("Press Start to begin.");
@@ -140,10 +191,12 @@ function endGame() {
 
   if (score > bestScore) {
     bestScore = score;
-    localStorage.setItem("arnav-snake-best", String(bestScore));
+    saveBestScore(bestScore);
     updateBestScore();
+    triggerNewBestAnimation();
   }
 
+  showGameOver();
   updateStatus("Game over! Press Restart to try again.");
 }
 
@@ -169,8 +222,9 @@ function tick() {
     randomFoodPosition();
     if (score > bestScore) {
       bestScore = score;
-      localStorage.setItem("arnav-snake-best", String(bestScore));
+      saveBestScore(bestScore);
       updateBestScore();
+      triggerNewBestAnimation();
     }
   } else {
     snake.pop();
@@ -247,6 +301,7 @@ document.querySelectorAll("[data-key]").forEach((button) => {
   });
 });
 
-buildBoard();
+bestScore = getSavedBestScore();
 updateBestScore();
+buildBoard();
 resetGame();

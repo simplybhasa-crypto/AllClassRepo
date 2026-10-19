@@ -42,7 +42,17 @@
             <button id="restart-btn" class="ghost" type="button">Restart</button>
           </div>
 
-          <div id="game-board" class="game-board" aria-label="Snake game board"></div>
+          <div class="board-wrap">
+            <div id="new-best" class="new-best-burst" aria-live="polite">New best!</div>
+            <div id="game-over-overlay" class="game-over-overlay" aria-live="assertive">
+              <div class="game-over-card">
+                <p class="game-over-label">Game Over</p>
+                <h2>You Lost</h2>
+                <span>Press Restart to try again</span>
+              </div>
+            </div>
+            <div id="game-board" class="game-board" aria-label="Snake game board"></div>
+          </div>
 
           <div class="game-footer">
             <p id="status-text">Press Start to begin.</p>

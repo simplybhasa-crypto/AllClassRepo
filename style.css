@@ -192,11 +192,130 @@ button:hover {
   background: #fff;
 }
 
+.board-wrap {
+  position: relative;
+  width: min(100%, 520px);
+  margin: 0 auto;
+}
+
+.new-best-burst {
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  z-index: 2;
+  padding: 10px 16px;
+  border: 1px solid rgba(23, 37, 31, 0.8);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe88a, #ffaf5b);
+  box-shadow: 0 12px 22px rgba(255, 175, 91, 0.38);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translate(-50%, 20px) scale(0.8);
+  pointer-events: none;
+}
+
+.new-best-burst.show {
+  animation: new-best-pop 1.5s ease forwards;
+}
+
+@keyframes new-best-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.8);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1.05);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -18px) scale(0.96);
+  }
+}
+
+.game-over-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(23, 37, 31, 0.58);
+  backdrop-filter: blur(3px);
+  border-radius: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+
+.game-over-overlay.show {
+  opacity: 1;
+}
+
+.game-over-card {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 22px 32px;
+  border: 2px solid rgba(23, 37, 31, 0.9);
+  border-radius: 22px;
+  background: linear-gradient(135deg, #fff5ef, #ffd8c7);
+  box-shadow: 0 20px 42px rgba(23, 37, 31, 0.25);
+  text-align: center;
+  transform: scale(0.72) translateY(16px);
+  animation: lose-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.game-over-card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.game-over-card span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.game-over-label {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #5a2d2a;
+}
+
+@keyframes lose-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.72) translateY(16px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(16, minmax(0, 1fr));
   gap: 4px;
-  width: min(100%, 520px);
+  width: 100%;
   aspect-ratio: 1;
   margin: 0 auto;
   padding: 14px;
