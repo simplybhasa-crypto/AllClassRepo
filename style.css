@@ -50,16 +50,22 @@ input {
   color: var(--ink);
   text-decoration: none;
   font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 0.7;
 }
 
 .project-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 12px;
-  border: 1px solid var(--ink);
+  padding: 9px 14px;
+  border: 1px solid rgba(23, 37, 31, 0.8);
   border-radius: 999px;
-  background: var(--green);
+  background: linear-gradient(135deg, #cfee7d, #b0e3a2);
+  box-shadow: 0 8px 18px rgba(109, 164, 77, 0.2);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -74,10 +80,23 @@ input {
 
 .game-panel,
 .info-panel {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 12px 24px rgba(23, 37, 31, 0.05);
+  position: relative;
+  border: 1px solid rgba(23, 37, 31, 0.12);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,251,246,0.82));
+  box-shadow: 0 18px 36px rgba(23, 37, 31, 0.08);
+  overflow: hidden;
+}
+
+.game-panel::before,
+.info-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--green) 0%, #dfe7ff 42%, #f7b6a4 100%);
 }
 
 .game-panel {
@@ -188,18 +207,21 @@ button:hover {
 }
 
 .cell {
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.38);
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
 }
 
 .cell.snake {
-  background: linear-gradient(135deg, var(--green-deep), var(--green));
-  border: 1px solid rgba(23, 37, 31, 0.18);
+  background: linear-gradient(135deg, #84b857, #b9ee5d);
+  border: 1px solid rgba(23, 37, 31, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .cell.food {
-  background: radial-gradient(circle at 35% 35%, #ffd9be 0%, #ff9f7d 35%, #f77d5b 100%);
-  border: 1px solid rgba(23, 37, 31, 0.2);
+  background: radial-gradient(circle at 35% 35%, #ffe1c4 0%, #ffb98b 30%, #f77d5b 100%);
+  border: 1px solid rgba(23, 37, 31, 0.14);
+  box-shadow: 0 0 0 1px rgba(247, 125, 91, 0.12), 0 8px 18px rgba(247, 125, 91, 0.2);
 }
 
 .game-footer {
