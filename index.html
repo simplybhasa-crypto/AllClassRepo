@@ -220,6 +220,8 @@
       animation-delay: calc(var(--slot-index) * 24ms);
     }
 
+    .project-slot-link { color: inherit; text-decoration: none; }
+
     .project-slot[hidden] { display: none; }
 
     .project-slot:hover {
@@ -351,7 +353,7 @@
     </div>
     <p class="results-count" id="results-count" aria-live="polite">15 STUDENT PAGES</p>
     <section class="project-grid" id="project-grid" aria-label="Student project pages">
-      <article class="project-slot" style="--slot-index: 0" data-search="student 01 1"><span class="slot-number">01</span><div class="slot-copy"><h3>Student 01</h3><p>Project page coming soon</p></div><span class="slot-state">Coming soon</span></article>
+      <a class="project-slot project-slot-link" style="--slot-index: 0" data-search="syon student 01 1 mbappe football goat" href="syon.html"><span class="slot-number">01</span><div class="slot-copy"><h3>Syon</h3><p>The Mbappé Standard · football games</p></div><span class="slot-state">Open project ↗</span></a>
       <article class="project-slot" style="--slot-index: 1" data-search="student 02 2"><span class="slot-number">02</span><div class="slot-copy"><h3>Student 02</h3><p>Project page coming soon</p></div><span class="slot-state">Coming soon</span></article>
       <article class="project-slot" style="--slot-index: 2" data-search="student 03 3"><span class="slot-number">03</span><div class="slot-copy"><h3>Student 03</h3><p>Project page coming soon</p></div><span class="slot-state">Coming soon</span></article>
       <article class="project-slot" style="--slot-index: 3" data-search="student 04 4"><span class="slot-number">04</span><div class="slot-copy"><h3>Student 04</h3><p>Project page coming soon</p></div><span class="slot-state">Coming soon</span></article>
