@@ -1,4 +1,4 @@
-const myName = 'Your Name';
+const myName = 'Praval';
 
 const cats = [
   {

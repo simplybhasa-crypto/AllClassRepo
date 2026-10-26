@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Sartila's student-made guide to Real Madrid Club de Fútbol, its history, stadium, and famous moments.">
+  <title>Real Madrid — Sartila's Project</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f5ef;
+      --ink: #171c2d;
+      --muted: #686d7b;
+      --line: #dedbd2;
+      --blue: #172b66;
+      --blue-light: #e7ebf7;
+      --gold: #c69c43;
+      --white: #fffefa;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .page-shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link:hover { color: var(--blue); }
+    .byline { color: var(--muted); }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 500px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      align-items: center;
+      gap: 46px;
+      padding: 76px 0 84px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      top: 34px;
+      right: 0;
+      width: 320px;
+      height: 320px;
+      border: 1px solid #e7e2d6;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .eyebrow, .section-label {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-family: var(--serif);
+      font-size: clamp(58px, 9vw, 112px);
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.88;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .intro {
+      max-width: 560px;
+      margin-bottom: 26px;
+      color: #4d5260;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      gap: 12px;
+      padding: 0 17px;
+      border: 1px solid var(--blue);
+      border-radius: 4px;
+      background: var(--blue);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .hero-link:hover { background: transparent; color: var(--blue); }
+
+    .crest {
+      position: relative;
+      display: grid;
+      width: 245px;
+      height: 280px;
+      justify-self: center;
+      place-items: center;
+      clip-path: polygon(50% 0, 100% 19%, 91% 74%, 50% 100%, 9% 74%, 0 19%);
+      background: var(--gold);
+      filter: drop-shadow(8px 10px 0 #172b661a);
+    }
+
+    .crest-inner {
+      display: grid;
+      width: 222px;
+      height: 257px;
+      place-items: center;
+      clip-path: polygon(50% 0, 100% 19%, 91% 74%, 50% 100%, 9% 74%, 0 19%);
+      background: var(--blue);
+    }
+
+    .crest-field {
+      display: grid;
+      width: 180px;
+      height: 166px;
+      align-content: center;
+      justify-items: center;
+      gap: 7px;
+      border: 2px solid #fff;
+      border-radius: 45% 45% 8px 8px;
+      background: repeating-linear-gradient(90deg, #fff 0 14px, #dce4f6 14px 28px);
+      color: var(--blue);
+      text-align: center;
+    }
+
+    .crest-crown { color: #f2d58e; font-size: 48px; line-height: 0.8; }
+    .crest-letters { font-family: var(--serif); font-size: 34px; font-weight: 700; letter-spacing: -0.12em; }
+    .crest-caption { margin: 0; color: white; font-size: 9px; font-weight: 800; letter-spacing: 0.17em; }
+
+    main { padding: 68px 0 82px; }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 86px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .fact { min-height: 128px; padding: 24px 26px; }
+    .fact + .fact { border-left: 1px solid var(--line); }
+    .fact strong { display: block; margin-bottom: 8px; color: var(--blue); font-family: var(--serif); font-size: 30px; font-weight: 400; }
+    .fact span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 72px;
+      margin-bottom: 88px;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
+
+    .story-copy { color: #4d5260; font-size: 15px; line-height: 1.8; }
+    .story-copy p:last-child { margin-bottom: 0; }
+
+    .moments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 25px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .moment {
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .moment-year { display: block; margin-bottom: 27px; color: var(--gold); font-family: var(--serif); font-size: 27px; }
+    .moment h3 { margin-bottom: 9px; font-size: 15px; }
+    .moment p { margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+    .quiz {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 40px;
+      padding: 38px;
+      border-radius: 5px;
+      background: var(--blue);
+      color: white;
+    }
+
+    .quiz .section-label { color: #e6c879; }
+    .quiz h2 { margin-bottom: 10px; }
+    .quiz-intro { margin: 0; color: #dbe1f2; font-size: 13px; line-height: 1.6; }
+    .quiz-panel { align-self: center; }
+    .quiz-progress { margin-bottom: 13px; color: #dbe1f2; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .quiz-question { margin-bottom: 17px; font-size: 19px; line-height: 1.45; }
+    .quiz-options { display: grid; gap: 9px; }
+
+    .quiz-option, .quiz-restart {
+      min-height: 43px;
+      padding: 10px 13px;
+      border: 1px solid #ffffff70;
+      border-radius: 3px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      text-align: left;
+      transition: background 140ms ease, color 140ms ease;
+    }
+
+    .quiz-option:hover:not(:disabled), .quiz-option:focus-visible, .quiz-restart:hover {
+      background: white;
+      color: var(--blue);
+    }
+
+    .quiz-option:disabled { cursor: default; opacity: 0.72; }
+    .quiz-option.is-correct { border-color: #e6c879; background: #e6c879; color: var(--ink); opacity: 1; }
+    .quiz-feedback { min-height: 24px; margin: 13px 0 0; color: #f2d58e; font-size: 13px; }
+    .quiz-restart { margin-top: 12px; }
+
+    footer { border-top: 1px solid var(--line); }
+    .footer-line { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 12px; }
+    .footer-line strong { color: var(--ink); }
+
+    :focus-visible { outline: 3px solid #d4aa54; outline-offset: 3px; }
+
+    @media (max-width: 760px) {
+      .hero { min-height: 0; grid-template-columns: minmax(0, 1fr) 220px; gap: 20px; padding: 64px 0; }
+      .crest { width: 190px; height: 220px; }
+      .crest-inner { width: 172px; height: 202px; }
+      .crest-field { width: 140px; height: 132px; }
+      .crest-crown { font-size: 38px; }
+      .crest-letters { font-size: 27px; }
+      .story-grid { grid-template-columns: 1fr; gap: 12px; }
+      .quiz { grid-template-columns: 1fr; gap: 27px; }
+    }
+
+    @media (max-width: 540px) {
+      .page-shell { width: min(100% - 32px, 440px); }
+      .topbar { min-height: 62px; font-size: 11px; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding: 55px 0 60px; }
+      .hero::before { top: 230px; right: 4px; width: 210px; height: 210px; }
+      h1 { font-size: clamp(58px, 17vw, 84px); }
+      .intro { font-size: 15px; }
+      .crest { width: 150px; height: 174px; justify-self: end; margin-right: 22px; }
+      .crest-inner { width: 136px; height: 159px; }
+      .crest-field { width: 112px; height: 103px; gap: 4px; }
+      .crest-crown { font-size: 29px; }
+      .crest-letters { font-size: 21px; }
+      .crest-caption { font-size: 7px; }
+      main { padding: 42px 0 55px; }
+      .facts { grid-template-columns: 1fr; margin-bottom: 64px; }
+      .fact { min-height: 0; padding: 19px 21px; }
+      .fact + .fact { border-top: 1px solid var(--line); border-left: 0; }
+      .fact strong { margin-bottom: 2px; font-size: 25px; }
+      .story-grid { margin-bottom: 65px; }
+      .moments { grid-template-columns: 1fr; }
+      .moment { min-height: 0; }
+      .moment-year { margin-bottom: 15px; }
+      .quiz { padding: 25px 20px; }
+      .footer-line { align-items: flex-start; flex-direction: column; justify-content: center; gap: 6px; padding: 14px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-shell">
+    <nav class="topbar" aria-label="Page navigation">
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Class project shelf</a>
+      <span class="byline">A student project by Sartila</span>
+    </nav>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">The story of a football giant</p>
+        <h1 id="page-title">Real <span>Madrid</span></h1>
+        <p class="intro">From the streets of Madrid to the biggest nights in European football, discover the club, its home, and the moments that made its history.</p>
+        <a class="hero-link" href="#story">Explore the club <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="crest" aria-label="A decorative illustration inspired by Real Madrid's blue and white colors" role="img">
+        <div class="crest-inner">
+          <div class="crest-field">
+            <span class="crest-crown" aria-hidden="true">♛</span>
+            <span class="crest-letters" aria-hidden="true">MCF</span>
+          </div>
+          <p class="crest-caption">Real Madrid</p>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main class="page-shell">
+    <section class="facts" aria-label="Real Madrid at a glance">
+      <div class="fact"><strong>1902</strong><span>The year the club was founded in Madrid, Spain.</span></div>
+      <div class="fact"><strong>Madrid, Spain</strong><span>The city Real Madrid represents and calls home.</span></div>
+      <div class="fact"><strong>Bernabéu</strong><span>The club's home ground, the Santiago Bernabéu Stadium.</span></div>
+    </section>
+
+    <section class="story-grid" id="story" aria-labelledby="story-title">
+      <div>
+        <p class="section-label">More than a team</p>
+        <h2 id="story-title">A club with a big story.</h2>
+      </div>
+      <div class="story-copy">
+        <p>Real Madrid Club de Fútbol is one of the world's best-known football clubs. Founded in 1902, the team plays in white and represents Spain's capital city. Its supporters are known around the world as Madridistas.</p>
+        <p>The Santiago Bernabéu Stadium is the club's home. Match days there bring together generations of fans to cheer on their team. Real Madrid has built a long history in Spanish and European football, with famous players and unforgettable matches across many eras.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="moments-title">
+      <p class="section-label">A few dates to remember</p>
+      <h2 id="moments-title">Milestones &amp; memories</h2>
+      <ol class="moments">
+        <li class="moment">
+          <span class="moment-year">1902</span>
+          <h3>The club begins</h3>
+          <p>Madrid Football Club is founded. The title “Real” is granted in 1920.</p>
+        </li>
+        <li class="moment">
+          <span class="moment-year">1947</span>
+          <h3>A new home</h3>
+          <p>The stadium that would become the Santiago Bernabéu opens in Madrid.</p>
+        </li>
+        <li class="moment">
+          <span class="moment-year">1955</span>
+          <h3>Europe's new competition</h3>
+          <p>Real Madrid wins the first European Cup, beginning a remarkable run in the competition.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="quiz" aria-labelledby="quiz-title">
+      <div>
+        <p class="section-label">Your turn</p>
+        <h2 id="quiz-title">Madridista quiz</h2>
+        <p class="quiz-intro">Three quick questions to see what you learned. Pick an answer to continue.</p>
+      </div>
+      <div class="quiz-panel" aria-live="polite">
+        <p class="quiz-progress" id="quiz-progress"></p>
+        <h3 class="quiz-question" id="quiz-question"></h3>
+        <div class="quiz-options" id="quiz-options"></div>
+        <p class="quiz-feedback" id="quiz-feedback"></p>
+        <button class="quiz-restart" id="quiz-restart" type="button" hidden>Play again</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-shell footer-line">
+      <span><strong>Made by Sartila.</strong> A student project about Real Madrid.</span>
+      <a href="index.html">Back to the class project shelf</a>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        question: "In which year was Real Madrid founded?",
+        options: ["1892", "1902", "1920"],
+        answer: 1
+      },
+      {
+        question: "What is the name of Real Madrid's home stadium?",
+        options: ["Camp Nou", "Wembley Stadium", "Santiago Bernabéu"],
+        answer: 2
+      },
+      {
+        question: "What color does Real Madrid traditionally play in?",
+        options: ["White", "Green", "Orange"],
+        answer: 0
+      }
+    ];
+
+    const progress = document.querySelector("#quiz-progress");
+    const questionText = document.querySelector("#quiz-question");
+    const optionsContainer = document.querySelector("#quiz-options");
+    const feedback = document.querySelector("#quiz-feedback");
+    const restartButton = document.querySelector("#quiz-restart");
+    let currentQuestion = 0;
+    let score = 0;
+
+    function showQuestion() {
+      const current = questions[currentQuestion];
+      progress.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+      questionText.textContent = current.question;
+      feedback.textContent = "";
+      optionsContainer.replaceChildren();
+
+      current.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "quiz-option";
+        button.type = "button";
+        button.textContent = option;
+        button.addEventListener("click", () => chooseAnswer(index));
+        optionsContainer.append(button);
+      });
+    }
+
+    function chooseAnswer(selectedIndex) {
+      const current = questions[currentQuestion];
+      const optionButtons = [...optionsContainer.querySelectorAll("button")];
+      optionButtons.forEach((button, index) => {
+        button.disabled = true;
+        if (index === current.answer) button.classList.add("is-correct");
+      });
+
+      if (selectedIndex === current.answer) {
+        score += 1;
+        feedback.textContent = "Correct! Nice work.";
+      } else {
+        feedback.textContent = `Not quite — the answer is ${current.options[current.answer]}.`;
+      }
+
+      window.setTimeout(() => {
+        currentQuestion += 1;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+          return;
+        }
+
+        progress.textContent = "Quiz complete";
+        questionText.textContent = `You scored ${score} out of ${questions.length}.`;
+        optionsContainer.replaceChildren();
+        feedback.textContent = score === questions.length
+          ? "A perfect score — hala Madrid!"
+          : "Thanks for playing. Explore the page and give it another try!";
+        restartButton.hidden = false;
+      }, 900);
+    }
+
+    restartButton.addEventListener("click", () => {
+      currentQuestion = 0;
+      score = 0;
+      restartButton.hidden = true;
+      showQuestion();
+    });
+
+    showQuestion();
+  </script>
+</body>
+</html>

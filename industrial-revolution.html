@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e8e2d2">
+  <meta name="description" content="Pramish's illustrated guide to the Industrial Revolution: its inventions, workers, and lasting impact.">
+  <title>The Industrial Revolution | Pramish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #e8e2d2;
+      --paper-light: #f7f3e9;
+      --ink: #202721;
+      --muted: #62675e;
+      --line: #c7c1b1;
+      --rust: #a64b32;
+      --rust-dark: #743421;
+      --moss: #596650;
+      --gold: #d8a84e;
+      --serif: "Libre Baskerville", Georgia, serif;
+      --sans: "DM Sans", "Trebuchet MS", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .page-shell { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+    .masthead { padding: 24px 0 14px; border-bottom: 1px solid var(--line); }
+    .topline { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand, .back-link, .eyebrow, .kicker, .tab-button, .image-credit { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-mark { display: grid; width: 29px; height: 29px; place-items: center; border: 1px solid var(--ink); border-radius: 5px; background: var(--gold); font-family: var(--serif); font-size: 15px; }
+    .back-link { color: var(--muted); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .back-link:hover { color: var(--rust-dark); }
+
+    .hero { display: grid; min-height: 500px; grid-template-columns: 0.92fr 1.08fr; align-items: stretch; border-bottom: 1px solid var(--line); }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: 66px max(32px, calc((100vw - 1160px) / 2)) 66px max(24px, calc((100vw - 1160px) / 2)); }
+    .eyebrow { margin: 0 0 20px; color: var(--rust-dark); }
+    h1, h2, h3, p { letter-spacing: 0; }
+    h1 { max-width: 620px; margin: 0; font-family: var(--serif); font-size: clamp(42px, 6vw, 76px); font-weight: 400; line-height: 1.06; }
+    h1 span { color: var(--rust); }
+    .hero-intro { max-width: 510px; margin: 24px 0 0; color: #454d45; font-size: 16px; line-height: 1.75; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .hero-stats strong { display: block; font-family: var(--serif); font-size: 21px; font-weight: 400; }
+    .hero-stats span { color: var(--muted); font-size: 11px; }
+    .hero-image { position: relative; min-height: 420px; overflow: hidden; background: #4b4238; }
+    .hero-image img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; object-position: center; filter: sepia(0.18) contrast(1.05); }
+    .hero-image::after { position: absolute; inset: auto 0 0; height: 35%; background: linear-gradient(transparent, #141a16b8); content: ""; pointer-events: none; }
+    .image-credit { position: absolute; z-index: 1; right: 20px; bottom: 17px; left: 20px; color: #fff8e9; font-size: 9px; line-height: 1.5; text-shadow: 0 1px 4px #000; }
+    .image-credit a { text-underline-offset: 3px; }
+
+    main { padding: 44px 0 68px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+    .kicker { margin: 0 0 9px; color: var(--rust-dark); }
+    .section-head h2 { margin: 0; font-family: var(--serif); font-size: 30px; font-weight: 400; }
+    .section-head > p { max-width: 330px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .tab-list { display: flex; gap: 4px; overflow-x: auto; border-bottom: 1px solid var(--line); scrollbar-width: thin; }
+    .tab-button { position: relative; flex: 0 0 auto; min-height: 49px; padding: 0 18px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-family: var(--sans); }
+    .tab-button:hover { color: var(--ink); }
+    .tab-button[aria-selected="true"] { color: var(--rust-dark); }
+    .tab-button[aria-selected="true"]::after { position: absolute; right: 12px; bottom: -1px; left: 12px; height: 3px; background: var(--rust); content: ""; }
+    .tab-button:focus-visible { outline: 3px solid #5375e8; outline-offset: -3px; }
+    .tab-panel { padding-top: 28px; animation: panel-in 260ms ease both; }
+    .tab-panel[hidden] { display: none; }
+    .panel-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr); align-items: start; gap: clamp(28px, 6vw, 74px); }
+    .panel-copy h2 { margin: 0 0 16px; font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); font-weight: 400; line-height: 1.25; }
+    .panel-copy p { margin: 0 0 16px; color: #424a42; font-size: 15px; line-height: 1.8; }
+    .panel-copy strong { color: var(--rust-dark); }
+    .panel-image { margin: 0; }
+    .panel-image img { display: block; width: 100%; max-height: 390px; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid #b5ad9b; background: #d1c8b6; }
+    .panel-image figcaption { margin-top: 9px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .panel-image figcaption a { text-underline-offset: 3px; }
+    .fact-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 28px; border: 1px solid var(--line); background: var(--line); }
+    .fact { padding: 17px; background: var(--paper-light); }
+    .fact strong { display: block; margin-bottom: 7px; color: var(--rust-dark); font-family: var(--serif); font-size: 17px; font-weight: 400; }
+    .fact span { color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 34px; border-top: 1px solid var(--line); }
+    .timeline-item { position: relative; padding: 17px 17px 0 0; }
+    .timeline-item::before { position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border: 1px solid var(--rust-dark); border-radius: 50%; background: var(--paper); content: ""; }
+    .timeline-item strong { display: block; margin-bottom: 7px; color: var(--rust-dark); font-family: var(--serif); font-size: 16px; }
+    .timeline-item span { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .callout { margin-top: 26px; padding: 18px 20px; border-left: 3px solid var(--gold); background: #ded7c5; color: #3f473e; font-size: 14px; line-height: 1.7; }
+
+    .sources { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .sources h2 { margin: 0 0 10px; font-family: var(--serif); font-size: 18px; font-weight: 400; }
+    .sources p { max-width: 850px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .sources a { text-underline-offset: 3px; }
+    footer { border-top: 1px solid var(--line); }
+    .footer-line { display: flex; min-height: 64px; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 12px; }
+    .footer-line strong { color: var(--ink); }
+    @keyframes panel-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 55px 24px 34px; }
+      .hero-image, .hero-image img { min-height: 330px; max-height: 420px; }
+      .panel-grid { grid-template-columns: 1fr; }
+      .panel-image { max-width: 620px; }
+    }
+    @media (max-width: 520px) {
+      .page-shell { width: min(100% - 32px, 440px); }
+      .masthead { padding-top: 16px; }
+      .brand, .back-link { font-size: 9px; }
+      .hero-copy { padding: 48px 16px 28px; }
+      h1 { max-width: 360px; font-size: clamp(40px, 12vw, 60px); }
+      .hero-intro { font-size: 14px; }
+      .hero-image, .hero-image img { min-height: 270px; }
+      main { padding-top: 34px; }
+      .section-head { align-items: flex-start; flex-direction: column; gap: 9px; }
+      .section-head h2 { font-size: 26px; }
+      .tab-list { margin-right: -16px; }
+      .tab-button { padding: 0 13px; font-size: 10px; }
+      .tab-panel { padding-top: 22px; }
+      .panel-copy p { font-size: 14px; }
+      .fact-strip { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
+      .footer-line { align-items: flex-start; flex-direction: column; justify-content: center; padding: 14px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="page-shell topline">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">P</span><span>Pramish / History Project</span></div>
+      <a class="back-link" href="index.html">&larr; Class project shelf</a>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">A turning point in human history · c. 1760-1840</p>
+      <h1 id="page-title">The Industrial <span>Revolution</span></h1>
+      <p class="hero-intro">In a few generations, people moved from making most goods by hand at home to producing them in factories powered by water and steam. The change began in Britain and reshaped work, cities, travel, and everyday life around the world.</p>
+      <div class="hero-stats" aria-label="Key facts">
+        <div><strong>c. 1760</strong><span>begins in Britain</span></div>
+        <div><strong>Machines</strong><span>change how goods are made</span></div>
+        <div><strong>People</strong><span>move toward factory towns</span></div>
+      </div>
+    </div>
+    <figure class="hero-image">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wyld,_William_-_Manchester_from_Kersal_Moor,_with_rustic_figures_and_goats_-_Google_Art_Project.jpg?width=1600" alt="A nineteenth-century painting of Manchester's crowded skyline and factory chimneys" fetchpriority="high">
+      <figcaption class="image-credit"><a href="https://commons.wikimedia.org/wiki/File:Wyld,_William_-_Manchester_from_Kersal_Moor,_with_rustic_figures_and_goats_-_Google_Art_Project.jpg" target="_blank" rel="noreferrer">Manchester from Kersal Moor</a> · William Wyld, 1852 · Wikimedia Commons</figcaption>
+    </figure>
+  </section>
+
+  <main class="page-shell">
+    <div class="section-head">
+      <div><p class="kicker">Explore the story</p><h2>Four parts of one big change</h2></div>
+      <p>Choose a chapter to follow the shift from handwork to industry, and see how progress brought both opportunity and hardship.</p>
+    </div>
+
+    <div class="tab-list" role="tablist" aria-label="Industrial Revolution chapters">
+      <button class="tab-button" id="tab-overview" type="button" role="tab" aria-selected="true" aria-controls="panel-overview" tabindex="0">01 · The beginning</button>
+      <button class="tab-button" id="tab-inventions" type="button" role="tab" aria-selected="false" aria-controls="panel-inventions" tabindex="-1">02 · New machines</button>
+      <button class="tab-button" id="tab-workers" type="button" role="tab" aria-selected="false" aria-controls="panel-workers" tabindex="-1">03 · Work &amp; life</button>
+      <button class="tab-button" id="tab-impact" type="button" role="tab" aria-selected="false" aria-controls="panel-impact" tabindex="-1">04 · Lasting change</button>
+    </div>
+
+    <section class="tab-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+      <div class="panel-grid">
+        <div class="panel-copy">
+          <p class="kicker">Before the factory age</p>
+          <h2>Production moved out of homes and into mills.</h2>
+          <p>Before industrialisation, many families spun thread and wove cloth at home, often by hand. This was called the <strong>cottage industry</strong>. Water-powered mills already existed, but new machines let owners bring more steps of production together under one roof.</p>
+          <p>Britain had useful supplies of coal and iron, rivers and ports for transport, and growing markets for manufactured goods. From the late 1700s, textile machinery and improved steam engines helped factories produce more goods, faster. Industrialisation spread to parts of Europe and North America during the 1800s.</p>
+          <div class="callout">The word “revolution” describes a major transformation, but it was not one sudden event. New technology, investment, resources, and changing patterns of work built up over many decades.</div>
+        </div>
+        <figure class="panel-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bomullsfabrik.jpg?width=1200" alt="An early nineteenth-century illustration of a cotton mill interior" loading="lazy">
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Bomullsfabrik.jpg" target="_blank" rel="noreferrer">Manchester cotton mill, c. 1834</a> · Wikimedia Commons</figcaption>
+        </figure>
+      </div>
+      <div class="timeline" aria-label="Early Industrial Revolution timeline">
+        <div class="timeline-item"><strong>c. 1760</strong><span>Industrialisation gathers pace in Britain.</span></div>
+        <div class="timeline-item"><strong>1764</strong><span>James Hargreaves develops the spinning jenny.</span></div>
+        <div class="timeline-item"><strong>1770s</strong><span>Watt's improved steam engines begin powering industry.</span></div>
+        <div class="timeline-item"><strong>1830</strong><span>The Liverpool and Manchester Railway opens.</span></div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="panel-inventions" role="tabpanel" aria-labelledby="tab-inventions" tabindex="0" hidden>
+      <div class="panel-grid">
+        <div class="panel-copy">
+          <p class="kicker">Power, speed, scale</p>
+          <h2>Machines made it possible to produce far more.</h2>
+          <p><strong>Spinning jenny:</strong> James Hargreaves developed a machine around 1764 that let one worker spin several threads at once. Richard Arkwright's water frame (patented in 1769) used water power to spin stronger thread, helping mills grow.</p>
+          <p><strong>Steam engine:</strong> Thomas Newcomen's engines were used to pump water from mines. James Watt's improvements in the 1760s and 1770s made steam power more efficient; rotary engines could drive machinery even when a factory was not beside a fast-flowing river.</p>
+          <p><strong>Iron and rail:</strong> Coal-powered ironmaking supplied stronger, more affordable metal for machinery and rails. Railways then carried heavy raw materials and finished goods more quickly. The Liverpool and Manchester Railway opened in 1830 as the first successful inter-city passenger railway.</p>
+        </div>
+        <figure class="panel-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Spinning_jenny.jpg?width=1200" alt="A museum model of a spinning jenny, an early multi-spindle textile machine" loading="lazy">
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Spinning_jenny.jpg" target="_blank" rel="noreferrer">A model of the spinning jenny</a> · Wikimedia Commons</figcaption>
+        </figure>
+      </div>
+      <div class="fact-strip">
+        <div class="fact"><strong>Textiles</strong><span>Spinning and weaving machines accelerated cloth production.</span></div>
+        <div class="fact"><strong>Steam</strong><span>Engines supplied power that was not tied to a river site.</span></div>
+        <div class="fact"><strong>Transport</strong><span>Canals and railways connected mines, mills, ports, and towns.</span></div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="panel-workers" role="tabpanel" aria-labelledby="tab-workers" tabindex="0" hidden>
+      <div class="panel-grid">
+        <div class="panel-copy">
+          <p class="kicker">A new rhythm of life</p>
+          <h2>Factory work brought jobs, but often at a heavy cost.</h2>
+          <p>Factories gathered large numbers of workers around machines. The pace was set by the equipment and the factory clock. Many people left rural areas to find paid work in industrial towns, which grew faster than housing, clean water, and sanitation could keep up.</p>
+          <p>Work could be repetitive, dangerous, and very long. Women and children worked in textile mills, while children also worked in mines. These experiences were not identical for everyone, but many workers had little control over hours or conditions.</p>
+          <p>Public reports and campaigns helped push for reforms. Britain's <strong>Factory Act of 1833</strong> restricted work by young children in textile factories and created factory inspectors. The <strong>Mines Act of 1842</strong> prohibited women and young children from working underground. Reform was gradual, and enforcement was uneven.</p>
+        </div>
+        <figure class="panel-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Coaltub.png?width=1200" alt="An illustration of a young mine worker pulling a coal tub through a low passage" loading="lazy">
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Coaltub.png" target="_blank" rel="noreferrer">A young “drawer” pulling a coal tub</a> · Wikimedia Commons</figcaption>
+        </figure>
+      </div>
+      <div class="callout">Industrial growth did not benefit everyone equally. The goods and wealth produced by factories existed alongside dangerous work, overcrowded housing, pollution, and debates about who should share in the gains.</div>
+    </section>
+
+    <section class="tab-panel" id="panel-impact" role="tabpanel" aria-labelledby="tab-impact" tabindex="0" hidden>
+      <div class="panel-grid">
+        <div class="panel-copy">
+          <p class="kicker">A world remade</p>
+          <h2>The consequences reached far beyond the factory gates.</h2>
+          <p>Mechanised production increased the supply of many goods and helped lower the cost of some products. Railways and canals moved people and materials, while industrial cities became centres of work, trade, and invention. Over time, new jobs and expanding markets changed how people lived and where they lived.</p>
+          <p>There were serious costs. Burning coal filled city air with smoke, and industrial waste polluted rivers. The growth of the cotton industry was also deeply connected to enslaved labor on plantations that supplied raw cotton. Industrialisation transformed economies while reinforcing exploitation and global inequalities.</p>
+          <p>Workers organised, protested, and demanded change. Luddite protesters resisted some machinery and the loss of skilled work; unions and reform movements later pressed for safer workplaces, fairer pay, and political rights. Industrialisation did not end in 1840: later waves brought steel, electricity, and new forms of mass production.</p>
+        </div>
+        <figure class="panel-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Opening_Liverpool_and_Manchester_Railway.jpg?width=1200" alt="A painting showing the opening of the Liverpool and Manchester Railway in 1830" loading="lazy">
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Opening_Liverpool_and_Manchester_Railway.jpg" target="_blank" rel="noreferrer">Opening of the Liverpool and Manchester Railway, 1830</a> · Wikimedia Commons</figcaption>
+        </figure>
+      </div>
+      <div class="fact-strip">
+        <div class="fact"><strong>More goods</strong><span>Mechanisation expanded output and changed what people could buy.</span></div>
+        <div class="fact"><strong>Growing cities</strong><span>Work drew people into towns that had to adapt quickly.</span></div>
+        <div class="fact"><strong>New demands</strong><span>Reform movements challenged unsafe and unfair conditions.</span></div>
+      </div>
+    </section>
+
+    <aside class="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">Sources &amp; image credits</h2>
+      <p>Historical overview: <a href="https://www.britannica.com/event/Industrial-Revolution" target="_blank" rel="noreferrer">Encyclopaedia Britannica, “Industrial Revolution”</a>; <a href="https://www.scienceandindustrymuseum.org.uk/objects-and-stories/industrial-revolution" target="_blank" rel="noreferrer">Science and Industry Museum</a>; <a href="https://www.parliament.uk/about/living-heritage/transformingsociety/livinglearning/19thcentury/overview/factoryact/" target="_blank" rel="noreferrer">UK Parliament, Factory Act 1833</a>. Images are linked to their Wikimedia Commons file pages; please check each file page for its license and creator details.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="page-shell footer-line"><span><strong>Pramish</strong> · Student history project</span><a class="back-link" href="index.html">Back to the class project shelf</a></div>
+  </footer>
+
+  <script>
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+
+    function activateTab(tab, moveFocus = false) {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute("aria-selected", String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.id !== tab.getAttribute("aria-controls");
+      });
+      if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activateTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex = index;
+        if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === "Home") nextIndex = 0;
+        else if (event.key === "End") nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b35">
+  <meta name="description" content="Syon's football case file: why Kylian Mbappé is the standard every young forward is chasing, with two original football games.">
+  <title>The Mbappé Standard — Syon</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #101b35;
+      --night-2: #17264a;
+      --panel: #1c2d54;
+      --white: #f5f6f4;
+      --muted: #aebbd2;
+      --blue: #4e7bff;
+      --blue-bright: #86a4ff;
+      --red: #f04e62;
+      --lime: #d8ff57;
+      --line: rgba(221, 231, 255, .15);
+      --display: Georgia, "Times New Roman", serif;
+      --body: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--night); color: var(--white); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:11px; font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .brand-mark { display:grid; place-items:center; width:32px; height:32px; background:var(--lime); color:var(--night); border-radius:50%; font-family:var(--display); font-size:21px; }
+    .topbar nav { display:flex; gap:23px; color:var(--muted); font-size:12px; }
+    .topbar nav a { text-decoration:none; }
+    .topbar nav a:hover { color:var(--white); }
+    .hero { position:relative; display:grid; min-height:590px; grid-template-columns:1.12fr .88fr; align-items:center; gap:35px; padding:75px 0 80px; overflow:hidden; }
+    .hero::before { position:absolute; z-index:-1; top:4%; right:-4%; width:58%; aspect-ratio:1; border:1px solid rgba(134,164,255,.14); border-radius:50%; content:""; box-shadow:0 0 0 54px rgba(134,164,255,.025), 0 0 0 108px rgba(134,164,255,.02); }
+    .eyebrow, .section-kicker { margin:0 0 16px; color:var(--lime); font-size:10px; font-weight:900; letter-spacing:.18em; text-transform:uppercase; }
+    h1 { max-width:700px; margin:0; font-family:var(--display); font-size:clamp(58px, 8.4vw, 108px); font-weight:400; line-height:.91; letter-spacing:-.055em; }
+    h1 em { color:var(--blue-bright); font-weight:400; }
+    .hero-copy { max-width:570px; margin:25px 0 0; color:#c5d0e3; font-size:16px; line-height:1.75; }
+    .hero-copy strong { color:var(--white); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:29px; }
+    .button { display:inline-flex; min-height:45px; align-items:center; justify-content:center; padding:0 17px; border:1px solid var(--line); border-radius:4px; background:transparent; color:var(--white); font-size:12px; font-weight:800; text-decoration:none; cursor:pointer; transition:transform .18s, background .18s; }
+    .button:hover { transform:translateY(-2px); }
+    .button-primary { border-color:var(--lime); background:var(--lime); color:var(--night); }
+    .hero-art { position:relative; display:grid; min-height:370px; place-items:center; }
+    .orbit { position:absolute; width:330px; aspect-ratio:1; border:1px solid rgba(134,164,255,.3); border-radius:50%; transform:rotate(-24deg) scaleY(.68); }
+    .orbit::before, .orbit::after { position:absolute; width:12px; height:12px; border-radius:50%; background:var(--lime); content:""; }
+    .orbit::before { top:18%; left:8%; }
+    .orbit::after { right:4%; bottom:21%; background:var(--red); }
+    .shirt { position:relative; display:grid; width:230px; height:260px; place-items:center; clip-path:polygon(25% 0, 39% 8%, 61% 8%, 75% 0, 100% 15%, 85% 39%, 75% 31%, 75% 100%, 25% 100%, 25% 31%, 15% 39%, 0 15%); background:linear-gradient(145deg,#456de0,#193277 70%); filter:drop-shadow(20px 25px 20px #080f24aa); transform:rotate(-5deg); }
+    .shirt::before { position:absolute; inset:12px; clip-path:inherit; border:1px solid rgba(255,255,255,.4); content:""; }
+    .shirt-number { margin-top:25px; color:#fff; font-family:var(--display); font-size:124px; line-height:1; text-shadow:0 4px 20px #0b174f88; }
+    .shirt-label { position:absolute; right:1%; bottom:12%; padding:12px 15px; border:1px solid var(--line); background:#142345e8; transform:rotate(4deg); }
+    .shirt-label strong { display:block; font-family:var(--display); font-size:19px; font-weight:400; }
+    .shirt-label span { color:var(--muted); font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
+    .hero-caption { position:absolute; top:7%; right:1%; color:var(--muted); font-size:9px; letter-spacing:.15em; text-transform:uppercase; writing-mode:vertical-rl; }
+    .ticker { overflow:hidden; padding:13px 0; border-block:1px solid var(--line); background:var(--night-2); color:#dce4f2; font-size:10px; font-weight:900; letter-spacing:.18em; text-transform:uppercase; white-space:nowrap; }
+    .ticker span { margin-right:34px; }
+    .ticker b { color:var(--lime); }
+    main section { padding:90px 0; border-bottom:1px solid var(--line); }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:35px; margin-bottom:35px; }
+    .section-head h2 { max-width:680px; margin:0; font-family:var(--display); font-size:clamp(38px, 5vw, 63px); font-weight:400; line-height:1.02; letter-spacing:-.035em; }
+    .section-head > p { max-width:340px; margin:0 0 5px; color:var(--muted); font-size:13px; line-height:1.7; }
+    .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .stat-card { min-height:166px; padding:22px; border:1px solid var(--line); background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015)); }
+    .stat-card strong { display:block; color:var(--lime); font-family:var(--display); font-size:46px; font-weight:400; line-height:1; }
+    .stat-card h3 { margin:18px 0 7px; font-size:12px; letter-spacing:.04em; text-transform:uppercase; }
+    .stat-card p { margin:0; color:var(--muted); font-size:11px; line-height:1.55; }
+    .source-note { margin:14px 0 0; color:#8797b4; font-size:10px; line-height:1.6; }
+    .case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .case-card { position:relative; min-height:285px; padding:27px 24px; overflow:hidden; border:1px solid var(--line); background:var(--night-2); }
+    .case-card::after { position:absolute; right:-27px; bottom:-75px; color:rgba(134,164,255,.08); font-family:var(--display); font-size:190px; line-height:1; content:attr(data-number); }
+    .case-card .tag { display:inline-flex; padding:6px 8px; border:1px solid rgba(216,255,87,.35); color:var(--lime); font-size:9px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .case-card h3 { position:relative; z-index:1; margin:28px 0 12px; font-family:var(--display); font-size:29px; font-weight:400; }
+    .case-card p { position:relative; z-index:1; margin:0; color:#bfcbdf; font-size:13px; line-height:1.75; }
+    .timeline { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); }
+    .moment { position:relative; padding:24px 20px 0 0; }
+    .moment::before { position:absolute; top:-5px; left:0; width:9px; height:9px; border:2px solid var(--night); border-radius:50%; background:var(--blue-bright); box-shadow:0 0 0 1px var(--blue-bright); content:""; }
+    .moment time { color:var(--lime); font-size:10px; font-weight:900; letter-spacing:.13em; }
+    .moment h3 { margin:12px 0 8px; font-family:var(--display); font-size:22px; font-weight:400; }
+    .moment p { max-width:230px; margin:0; color:var(--muted); font-size:11px; line-height:1.7; }
+    .nuance { display:grid; grid-template-columns:.34fr 1fr; gap:38px; align-items:start; padding:30px; border-left:3px solid var(--red); background:rgba(240,78,98,.075); }
+    .nuance-label { color:#ff8290; font-size:10px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .nuance p { margin:0; color:#d4dced; font-family:var(--display); font-size:21px; line-height:1.55; }
+    .game-section { background:radial-gradient(ellipse at 50% 0%,rgba(78,123,255,.12),transparent 60%); }
+    .game-intro { margin:0; color:var(--muted); font-size:13px; line-height:1.7; }
+    .games-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+    .game-card { overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#142344; box-shadow:0 20px 60px #080f241c; }
+    .game-top { display:flex; justify-content:space-between; gap:15px; padding:20px 22px; border-bottom:1px solid var(--line); }
+    .game-top h3 { margin:0; font-family:var(--display); font-size:25px; font-weight:400; }
+    .game-top p { margin:5px 0 0; color:var(--muted); font-size:10px; }
+    .game-badge { align-self:start; padding:7px 8px; border:1px solid var(--line); color:var(--lime); font-size:9px; font-weight:900; letter-spacing:.1em; white-space:nowrap; }
+    .game-body { padding:20px 22px 22px; }
+    .game-status { display:flex; justify-content:space-between; gap:12px; margin-bottom:15px; color:var(--muted); font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .game-status strong { color:var(--white); }
+    .score-readout { color:var(--lime); }
+    .pitch-mini { position:relative; min-height:158px; display:grid; place-items:center; margin-bottom:14px; overflow:hidden; border:1px solid rgba(255,255,255,.22); background:repeating-linear-gradient(90deg,#164b45 0,#164b45 12.5%,#19534a 12.5%,#19534a 25%); }
+    .pitch-mini::before { position:absolute; inset:10px; border:1px solid rgba(255,255,255,.32); content:""; }
+    .pitch-mini::after { position:absolute; top:50%; left:50%; width:42px; height:42px; border:1px solid rgba(255,255,255,.3); border-radius:50%; content:""; transform:translate(-50%,-50%); }
+    .scenario-box { position:relative; z-index:1; width:min(82%,410px); padding:13px 15px; border:1px solid rgba(255,255,255,.2); background:#102d30e8; text-align:center; }
+    .scenario-box small { display:block; margin-bottom:5px; color:var(--lime); font-size:9px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .scenario-box p { margin:0; font-family:var(--display); font-size:18px; line-height:1.3; }
+    .choices { display:grid; gap:8px; }
+    .choice, .zone-button { width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:4px; background:#1a2b4d; color:var(--white); text-align:left; font-size:11px; line-height:1.5; cursor:pointer; transition:border-color .15s, background .15s, transform .15s; }
+    .choice:hover:not(:disabled), .zone-button:hover:not(:disabled) { border-color:var(--blue-bright); background:#233960; transform:translateY(-1px); }
+    .choice:disabled { cursor:default; opacity:.8; }
+    .choice.correct { border-color:#a9d333; background:#29452d; }
+    .choice.incorrect { border-color:#f27683; background:#482a3b; }
+    .game-feedback { min-height:40px; margin:12px 0 0; color:#c5d0e3; font-size:11px; line-height:1.6; }
+    .game-controls { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:12px; }
+    .game-controls .button { min-height:38px; padding-inline:13px; font-size:10px; }
+    .game-help { margin:13px 0 0; color:#8e9fbd; font-size:10px; line-height:1.6; }
+    .high-score { margin-left:auto; color:var(--muted); font-size:9px; text-align:right; }
+    .high-score strong { color:var(--lime); }
+    .goal { position:relative; display:grid; height:134px; grid-template-columns:repeat(3,1fr); margin:7px 0 14px; padding:15px 15px 12px; border:5px solid #eef3fa; border-bottom-width:9px; background:linear-gradient(#203963,#172d51); box-shadow:inset 0 0 0 1px #ffffff44; }
+    .goal::before { position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent 0 22px,#ffffff14 23px 24px),repeating-linear-gradient(90deg,transparent 0 32px,#ffffff14 33px 34px); content:""; pointer-events:none; }
+    .zone-button { position:relative; z-index:1; align-self:center; min-height:62px; padding:8px 4px; background:#ffffff0b; text-align:center; font-size:10px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .zone-button.selected { border-color:var(--lime); background:#d8ff5730; box-shadow:inset 0 0 0 1px var(--lime); }
+    .keeper { position:absolute; z-index:2; top:8px; left:50%; width:34px; height:34px; display:grid; place-items:center; border:1px solid #fff8; border-radius:50%; background:var(--red); font-size:17px; transform:translateX(-50%); transition:left .35s ease; }
+    .keeper.left { left:24%; }.keeper.center { left:50%; }.keeper.right { left:76%; }
+    .power-row { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:10px; color:var(--muted); font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    input[type="range"] { width:100%; accent-color:var(--lime); }
+    .power-row output { min-width:38px; color:var(--lime); text-align:right; }
+    .shot-counter { display:flex; gap:5px; }
+    .shot-dot { width:9px; height:9px; border:1px solid #8392ac; border-radius:50%; }
+    .shot-dot.scored { border-color:var(--lime); background:var(--lime); }
+    .shot-dot.saved { border-color:var(--red); background:var(--red); }
+    .zone-row { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+    .zone-row .zone-button { min-height:40px; }
+    .game-result { margin:12px 0 0; color:var(--lime); font-family:var(--display); font-size:19px; }
+    .game-restart { display:none; }
+    .game-restart.visible { display:inline-flex; }
+    .finale { display:grid; grid-template-columns:1fr auto; align-items:center; gap:25px; padding:36px; background:var(--lime); color:var(--night); }
+    .finale h2 { margin:0; font-family:var(--display); font-size:clamp(33px,4vw,50px); font-weight:400; line-height:1.05; }
+    .finale p { max-width:680px; margin:12px 0 0; font-size:12px; line-height:1.7; }
+    .finale .button { border-color:var(--night); color:var(--night); }
+    footer { padding:24px 0; color:var(--muted); font-size:10px; }
+    .footer-line { display:flex; justify-content:space-between; gap:20px; }
+    .footer-line strong { color:var(--white); }
+    @media(max-width:850px) {
+      .hero { min-height:500px; grid-template-columns:1fr .75fr; }
+      .hero-art { min-height:300px; }.shirt { transform:scale(.82) rotate(-5deg); }
+      .stat-grid { grid-template-columns:repeat(2,1fr); }
+      .games-grid { grid-template-columns:1fr; }
+      .case-card { min-height:310px; }
+    }
+    @media(max-width:620px) {
+      .wrap { width:min(100% - 32px,500px); }
+      .topbar nav { gap:12px; font-size:10px; }.brand { font-size:9px; }
+      .hero { min-height:unset; grid-template-columns:1fr; padding:64px 0 38px; }
+      h1 { max-width:540px; font-size:clamp(59px,14vw,90px); }
+      .hero-copy { font-size:14px; }.hero-art { min-height:235px; margin-top:3px; }
+      .orbit { width:240px; }.shirt { transform:scale(.66) rotate(-5deg); }.shirt-label { right:5%; bottom:6%; }
+      main section { padding:65px 0; }
+      .section-head { align-items:flex-start; flex-direction:column; gap:12px; margin-bottom:25px; }
+      .section-head > p { max-width:unset; }
+      .case-grid { grid-template-columns:1fr; }.case-card { min-height:unset; }
+      .timeline { grid-template-columns:1fr 1fr; row-gap:20px; }
+      .moment { min-height:145px; padding-right:12px; }
+      .nuance { grid-template-columns:1fr; gap:12px; padding:22px; }.nuance p { font-size:18px; }
+      .finale { grid-template-columns:1fr; padding:25px; }
+      .footer-line { flex-direction:column; gap:8px; }
+    }
+    @media(max-width:390px) {
+      .topbar nav { gap:8px; }.topbar nav a { font-size:9px; }
+      .stat-card { padding:16px; }.stat-card strong { font-size:38px; }
+      .game-top, .game-body { padding-inline:15px; }
+      .game-top h3 { font-size:21px; }.game-badge { font-size:8px; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="index.html" aria-label="Class Web Lab home"><span class="brand-mark" aria-hidden="true">S</span><span>Syon's football case file</span></a>
+    <nav aria-label="Main navigation"><a href="#case">The case</a><a href="#timeline">Big moments</a><a href="#games">Play the games</a></nav>
+  </header>
+  <main>
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">A fan's argument · by Syon</p>
+        <h1 id="hero-title">The <em>Mbappé</em><br>standard.</h1>
+        <p class="hero-copy">The next generation has plenty of brilliant players. But when the lights get brightest, <strong>Kylian Mbappé has already made a case that is hard to match.</strong> This is my argument for why he is the GOAT of his generation—and why every young forward is chasing his level.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#case">Read the case <span aria-hidden="true">&nbsp;↘</span></a><a class="button" href="#games">Skip to the games <span aria-hidden="true">&nbsp;→</span></a></div>
+      </div>
+      <div class="hero-art" aria-label="Original number 10 shirt illustration">
+        <div class="orbit" aria-hidden="true"></div><div class="shirt" aria-hidden="true"><span class="shirt-number">10</span></div>
+        <div class="shirt-label"><strong>Big-stage player</strong><span>Speed · skill · nerve</span></div><span class="hero-caption">The case for Kylian Mbappé</span>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><span><b>⚡</b> Explosive pace</span><span>✦ Big-game nerve</span><span><b>✦</b> Finishing</span><span>↗ Still writing the story</span><span><b>⚡</b> Explosive pace</span><span>✦ Big-game nerve</span></div>
+
+    <section class="wrap" id="case" aria-labelledby="case-title">
+      <div class="section-head"><div><p class="section-kicker">01 / The evidence</p><h2 id="case-title">This isn't just hype.<br>Look at the moments.</h2></div><p>Greatness is more than a highlight reel. The argument gets stronger when the performance, the occasion and the outcome all line up.</p></div>
+      <div class="stat-grid">
+        <article class="stat-card"><strong>19</strong><h3>World champion</h3><p>Mbappé was 19 when France won the 2018 FIFA World Cup.</p></article>
+        <article class="stat-card"><strong>4</strong><h3>Final goals</h3><p>He scored in the 2018 final, then hit a hat-trick in the 2022 final.</p></article>
+        <article class="stat-card"><strong>8</strong><h3>Goals in 2022</h3><p>That tournament earned him the Golden Boot as its top scorer.</p></article>
+        <article class="stat-card"><strong>2</strong><h3>World Cup finals</h3><p>By age 23, he had played in two finals—and scored in both.</p></article>
+      </div>
+      <p class="source-note">Tournament facts: FIFA World Cup 2018 and 2022 records. The “GOAT” label is my opinion; these milestones are the evidence behind it.</p>
+    </section>
+
+    <section class="wrap" aria-labelledby="pillars-title">
+      <div class="section-head"><div><p class="section-kicker">02 / Why he's different</p><h2 id="pillars-title">Three things make<br>the case compelling.</h2></div><p>Numbers start the conversation. The way he changes a match is what makes it fun to watch.</p></div>
+      <div class="case-grid">
+        <article class="case-card" data-number="01"><span class="tag">The big stage</span><h3>He shows up when it counts.</h3><p>A World Cup final is the biggest stage in football. Mbappé scored in one at 19, then scored three times in another. France lost the 2022 final on penalties, but his performance kept them in the fight. That is a remarkable response to pressure.</p></article>
+        <article class="case-card" data-number="02"><span class="tag">The complete threat</span><h3>Defenders have no easy answer.</h3><p>Give him space and his acceleration can turn a hopeful pass into a breakaway. Sit deep and he can combine, cut inside or finish quickly. The danger is not one trick: it is the defender having to guess which one comes next.</p></article>
+        <article class="case-card" data-number="03"><span class="tag">The standard</span><h3>He makes “young talent” look small.</h3><p>Many teenagers are described as the future. Mbappé was already producing defining moments before most players have made their senior breakthrough. The comparison is not about disrespecting other youngsters—it is about how rare that early impact is.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="timeline" aria-labelledby="timeline-title">
+      <div class="section-head"><div><p class="section-kicker">03 / A short timeline</p><h2 id="timeline-title">From promise to<br>world-stage proof.</h2></div><p>Four snapshots from a career that moved from “watch this kid” to “build a game plan around him.”</p></div>
+      <div class="timeline">
+        <article class="moment"><time datetime="2017">2017</time><h3>The breakout</h3><p>A teenage Mbappé helped Monaco win Ligue 1 and reached the Champions League semi-finals.</p></article>
+        <article class="moment"><time datetime="2018">2018</time><h3>World champion</h3><p>He scored in the World Cup final for France and received FIFA's Best Young Player award.</p></article>
+        <article class="moment"><time datetime="2022">2022</time><h3>A final for the ages</h3><p>His three goals in the final made him only the second man to score a World Cup final hat-trick.</p></article>
+        <article class="moment"><time datetime="2022">2022 · onward</time><h3>The story continues</h3><p>Those finals set an extraordinary benchmark. His legacy is still being written, which makes the next chapters worth watching.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" aria-label="A fair note about the debate">
+      <div class="nuance"><span class="nuance-label">A fair note</span><p>“The GOAT” is a debate, not a lab result. Comparing players across different eras is tricky, and the best young talents deserve room to build their own stories. My claim is simple: <strong>no youngster has matched Mbappé's combination of early success and World Cup-final impact.</strong> The debate is part of the fun.</p></div>
+    </section>
+
+    <section class="game-section" id="games" aria-labelledby="games-title">
+      <div class="wrap">
+        <div class="section-head"><div><p class="section-kicker">04 / The interactive zone</p><h2 id="games-title">Your turn under pressure.</h2></div><p class="game-intro">Two original mini-games. Read the pitch, pick your moment, and see if you can make the difference. No downloads, no accounts—just play.</p></div>
+        <div class="games-grid">
+          <article class="game-card" aria-labelledby="attack-title">
+            <div class="game-top"><div><h3 id="attack-title">Final Third</h3><p>Read the situation. Choose the smartest play.</p></div><span class="game-badge">DECISION GAME</span></div>
+            <div class="game-body">
+              <div class="game-status"><span>Play <strong id="attack-round">0 / 5</strong></span><span>Combo <strong id="attack-combo">×0</strong></span><span class="score-readout">Score <strong id="attack-score">0</strong></span></div>
+              <div class="pitch-mini"><div class="scenario-box"><small id="attack-phase">Ready when you are</small><p id="attack-scenario">Can you turn five tough attacks into a goal-scoring chance?</p></div></div>
+              <div class="choices" id="attack-choices" aria-label="Choose your football decision"></div>
+              <p class="game-feedback" id="attack-feedback" aria-live="polite">A good decision depends on the space, the defenders and the moment. Start to begin your five-play run.</p>
+              <div class="game-controls"><button class="button button-primary" id="attack-start" type="button">Start the run</button><button class="button" id="attack-next" type="button" hidden>Next play →</button><span class="high-score">Best <strong id="attack-best">0</strong></span></div>
+              <p class="game-help">Five scenarios · +100 for the right read · build a combo for bonus points. Your best score stays on this device.</p>
+            </div>
+          </article>
+
+          <article class="game-card" aria-labelledby="penalty-title">
+            <div class="game-top"><div><h3 id="penalty-title">Penalty Lab</h3><p>Outthink a keeper who studies your habits.</p></div><span class="game-badge">5-SHOT SHOOTOUT</span></div>
+            <div class="game-body">
+              <div class="game-status"><span>Shot <strong id="penalty-round">0 / 5</strong></span><span class="score-readout">Goals <strong id="penalty-score">0</strong></span></div>
+              <div class="game-status"><span>Keeper report</span><strong id="keeper-report">Keeper is studying your first shot.</strong></div>
+              <div class="goal" aria-label="Choose where to place the penalty"><span class="keeper center" id="keeper" aria-hidden="true">●</span><button type="button" class="zone-button" data-zone="left" aria-pressed="false">Left</button><button type="button" class="zone-button" data-zone="center" aria-pressed="false">Center</button><button type="button" class="zone-button" data-zone="right" aria-pressed="false">Right</button></div>
+              <label class="power-row" for="shot-power"><span>Composure</span><input id="shot-power" type="range" min="50" max="100" value="78"><output id="power-value" for="shot-power">78%</output></label>
+              <div class="game-controls"><div class="shot-counter" id="shot-counter" aria-label="Five shots remaining"><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></div><button class="button button-primary" id="take-shot" type="button">Take the shot</button><button class="button game-restart" id="penalty-restart" type="button">Play again</button></div>
+              <p class="game-result" id="penalty-result" aria-live="polite"></p>
+              <p class="game-help">The keeper adapts to your most-used corner. Mix up your placement. Max power can go wide—composure matters.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="wrap" aria-label="Closing thought">
+      <div class="finale"><div><h2>That's my case.<br>Now make your own.</h2><p>Mbappé's story is still unfolding. Whether you agree with my GOAT pick or not, the best way to settle a football argument is to watch the moments—and then get out on the pitch.</p></div><a class="button" href="#games">Run it back ↑</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-line"><span><strong>Made by Syon.</strong> A fan project, not affiliated with any club or player.</span><span>Built with HTML · CSS · JavaScript</span></div></footer>
+
+  <script>
+    (() => {
+      const scenarios = [
+        { phase: "Breakaway · 1 v 1", text: "You have the ball at the edge of the box. The keeper is rushing out and a defender is closing from your left.", options: ["Take a quick touch across the keeper and finish into the open side.", "Shoot immediately from far out, before the defender gets close.", "Stop completely and wait for the defender to choose a side."], best: 0, why: "The keeper is advancing, so a controlled touch across them uses their momentum and opens the far side." },
+        { phase: "Counterattack · 3 v 2", text: "Two defenders are backpedalling. Your teammate is free on the right, but the nearest defender is shading toward them.", options: ["Drive at the defender, then slip a pass into the space they leave.", "Pass straight to your teammate's feet right away.", "Slow down and let both defenders get set."], best: 0, why: "Commit the defender first. A late pass into the space they vacate is harder to read than an early pass to feet." },
+        { phase: "Tight angle · near post", text: "You receive wide in the box. The keeper expects a cross and is guarding the middle; your teammate is marked.", options: ["Hit a low shot through the small near-post gap before the keeper resets.", "Float a slow cross toward the marked teammate.", "Take several extra touches toward the corner flag."], best: 0, why: "The keeper's weight and attention are central. A quick, low finish can punish that tiny window before it closes." },
+        { phase: "Low block · crowded box", text: "There are four defenders between you and goal. A teammate is arriving unmarked at the top of the box.", options: ["Try to dribble through all four defenders.", "Lay the ball back into the teammate's path for a first-time shot.", "Shoot hard into the defender directly in front of you."], best: 1, why: "The defence has overloaded your lane. A simple layoff gives the arriving teammate a clean look before the block can shift." },
+        { phase: "Final minutes · one goal needed", text: "Your team wins the ball near halfway with three minutes left. You can run into space, but two teammates are joining the break.", options: ["Carry forward to draw a defender, then choose shoot or pass from the new picture.", "Take a hopeful shot from halfway right now.", "Turn back and wait for the full team to come up."], best: 0, why: "Progress while keeping your options open. Drawing a defender creates a better shot or a clear pass without forcing it too early." },
+        { phase: "Second ball · quick reaction", text: "A shot rebounds off a defender and drops near the penalty spot. The keeper is still moving the wrong way.", options: ["Set your feet and place a controlled finish into the space the keeper left.", "Blast the ball as hard as possible without looking up.", "Wait for the ball to stop completely before reacting."], best: 0, why: "The keeper is off-balance and the rebound is live. A fast, accurate placement beats extra power here." }
+      ];
+      const $ = (selector) => document.querySelector(selector);
+      const attackRound = $("#attack-round"), attackCombo = $("#attack-combo"), attackScore = $("#attack-score");
+      const attackPhase = $("#attack-phase"), attackScenario = $("#attack-scenario"), attackChoices = $("#attack-choices");
+      const attackFeedback = $("#attack-feedback"), attackStart = $("#attack-start"), attackNext = $("#attack-next");
+      let run = [], round = 0, combo = 0, score = 0, answered = false;
+      let bestScore = Number(localStorage.getItem("syonFinalThirdBest") || 0);
+      $("#attack-best").textContent = bestScore;
+
+      function shuffled(items) { return [...items].sort(() => Math.random() - .5); }
+      function showScenario() {
+        answered = false;
+        const item = run[round];
+        attackRound.textContent = `${round + 1} / 5`;
+        attackPhase.textContent = item.phase;
+        attackScenario.textContent = item.text;
+        attackChoices.replaceChildren();
+        item.options.forEach((text, index) => {
+          const button = document.createElement("button");
+          button.type = "button"; button.className = "choice"; button.textContent = text;
+          button.addEventListener("click", () => chooseAnswer(index));
+          attackChoices.append(button);
+        });
+        attackFeedback.textContent = "Read the picture, then commit to your decision.";
+        attackNext.hidden = true;
+      }
+      function chooseAnswer(index) {
+        if (answered) return;
+        answered = true;
+        const item = run[round], buttons = [...attackChoices.querySelectorAll("button")];
+        buttons.forEach((button, i) => { button.disabled = true; if (i === item.best) button.classList.add("correct"); });
+        if (index === item.best) {
+          combo += 1;
+          const points = 100 + Math.max(0, combo - 1) * 25;
+          score += points;
+          attackCombo.textContent = `×${combo}`;
+          attackFeedback.textContent = `Great read. +${points} points. ${item.why}`;
+        } else {
+          combo = 0;
+          buttons[index].classList.add("incorrect");
+          attackCombo.textContent = "×0";
+          attackFeedback.textContent = `Not this time. Combo reset. ${item.why}`;
+        }
+        attackScore.textContent = score;
+        if (round === 4) finishRun(); else attackNext.hidden = false;
+      }
+      function finishRun() {
+        attackPhase.textContent = "Full time";
+        attackRound.textContent = "5 / 5";
+        attackFeedback.textContent += ` Run complete: ${score} points. ${score >= 500 ? "Clinical decision-making!" : "Play again and build that combo."}`;
+        attackStart.hidden = false; attackStart.textContent = "Play another run";
+        attackNext.hidden = true;
+        if (score > bestScore) { bestScore = score; localStorage.setItem("syonFinalThirdBest", String(bestScore)); $("#attack-best").textContent = bestScore; }
+      }
+      attackStart.addEventListener("click", () => {
+        run = shuffled(scenarios).slice(0, 5); round = 0; combo = 0; score = 0;
+        attackScore.textContent = "0"; attackCombo.textContent = "×0"; attackStart.hidden = true;
+        showScenario();
+      });
+      attackNext.addEventListener("click", () => { round += 1; showScenario(); });
+
+      const zones = [...document.querySelectorAll(".zone-button[data-zone]")];
+      const power = $("#shot-power"), keeper = $("#keeper"), takeShot = $("#take-shot");
+      const penaltyRestart = $("#penalty-restart"), keeperReport = $("#keeper-report");
+      let selectedZone = "", attempts = 0, goals = 0, history = { left: 0, center: 0, right: 0 }, penaltyOver = false;
+      $("#power-value").textContent = `${power.value}%`;
+      power.addEventListener("input", () => { $("#power-value").textContent = `${power.value}%`; });
+      zones.forEach((button) => button.addEventListener("click", () => {
+        if (penaltyOver) return;
+        selectedZone = button.dataset.zone;
+        zones.forEach((zone) => { const active = zone === button; zone.classList.toggle("selected", active); zone.setAttribute("aria-pressed", String(active)); });
+      }));
+      function keeperChoice() {
+        const max = Math.max(...Object.values(history));
+        if (max === 0) return ["left", "center", "right"][Math.floor(Math.random() * 3)];
+        const mostUsed = Object.keys(history).filter((zone) => history[zone] === max);
+        if (mostUsed.length === 3) return ["left", "center", "right"][Math.floor(Math.random() * 3)];
+        return Math.random() < .72 ? mostUsed[Math.floor(Math.random() * mostUsed.length)] : ["left", "center", "right"].filter((zone) => !mostUsed.includes(zone))[Math.floor(Math.random() * (3 - mostUsed.length))];
+      }
+      function takePenalty() {
+        if (!selectedZone || penaltyOver) {
+          if (!selectedZone) $("#penalty-result").textContent = "Choose a corner first—then take your shot.";
+          return;
+        }
+        const guessed = keeperChoice(), powerValue = Number(power.value);
+        attempts += 1;
+        history[selectedZone] += 1;
+        keeper.className = `keeper ${guessed}`;
+        const wide = powerValue >= 96 && Math.random() < .25;
+        const saved = !wide && guessed === selectedZone;
+        const dots = [...$("#shot-counter").children];
+        dots[attempts - 1].classList.add(wide ? "saved" : saved ? "saved" : "scored");
+        if (!saved && !wide) goals += 1;
+        $("#penalty-round").textContent = `${attempts} / 5`;
+        $("#penalty-score").textContent = goals;
+        $("#penalty-result").textContent = wide ? "Over the bar! At max power, accuracy can disappear." : saved ? `Saved! The keeper read ${guessed}. Switch it up next time.` : `GOAL! You placed it ${selectedZone} and sent the keeper the other way.`;
+        const leader = Object.entries(history).sort((a, b) => b[1] - a[1])[0];
+        keeperReport.textContent = attempts < 5 ? `You have gone ${leader[1]} time${leader[1] === 1 ? "" : "s"} ${leader[0]}; the keeper is watching.` : "Shootout complete.";
+        zones.forEach((zone) => { zone.disabled = attempts >= 5; });
+        takeShot.disabled = attempts >= 5;
+        selectedZone = "";
+        zones.forEach((zone) => { zone.classList.remove("selected"); zone.setAttribute("aria-pressed", "false"); });
+        if (attempts === 5) finishPenalty();
+      }
+      function finishPenalty() {
+        penaltyOver = true;
+        $("#penalty-result").textContent = `${goals} out of 5. ${goals >= 4 ? "Ice-cold finishing!" : goals >= 2 ? "A solid shootout—keep the keeper guessing." : "The keeper won this round. Change your pattern and try again."}`;
+        takeShot.hidden = true; penaltyRestart.classList.add("visible");
+      }
+      takeShot.addEventListener("click", takePenalty);
+      penaltyRestart.addEventListener("click", () => {
+        attempts = 0; goals = 0; history = { left: 0, center: 0, right: 0 }; penaltyOver = false;
+        $("#penalty-round").textContent = "0 / 5"; $("#penalty-score").textContent = "0";
+        $("#penalty-result").textContent = ""; keeperReport.textContent = "Keeper is studying your first shot.";
+        [...$("#shot-counter").children].forEach((dot) => dot.className = "shot-dot");
+        keeper.className = "keeper center"; zones.forEach((zone) => { zone.disabled = false; });
+        takeShot.disabled = false; takeShot.hidden = false; penaltyRestart.classList.remove("visible");
+      });
+    })();
+  </script>
+</body>
+</html>

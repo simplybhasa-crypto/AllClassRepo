@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Purrfectly Yours, a cozy cat community project by Praval." />
+    <title>Purrfectly Yours — Praval</title>
+    <link rel="stylesheet" href="purrfectly-yours.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="Purrfectly Yours home">
+          <span class="brand-mark" aria-hidden="true">🐾</span>
+          <span>Purrfectly Yours</span>
+        </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Class projects</a>
+          <a href="#cats">Cats</a>
+          <a href="#care">Care</a>
+          <a href="#story">Stories</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Cat community</p>
+            <h1>Cozy cat life, one nap at a time.</h1>
+            <p class="lede">
+              Discover playful rescues, dreamy cat cafés, and all the tiny rituals that make feline life feel magical.
+            </p>
+            <div class="cta-row">
+              <a class="primary-btn" href="#cats">Meet the cats</a>
+              <a class="secondary-btn" href="#care">Cat care tips</a>
+            </div>
+            <ul class="mini-stats" aria-label="Cat community stats">
+              <li><strong>27</strong><span>happy rescues</span></li>
+              <li><strong>12</strong><span>sunlit naps</span></li>
+              <li><strong>4</strong><span>paws of joy</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-card" aria-live="polite">
+            <div class="cat-stage">
+              <div class="cat-figure" aria-label="Featured cat illustration">
+                <div class="cat-head">
+                  <span class="ear left"></span>
+                  <span class="ear right"></span>
+                  <span class="eye left"></span>
+                  <span class="eye right"></span>
+                  <span class="nose"></span>
+                  <span class="mouth"></span>
+                </div>
+                <div class="cat-body">
+                  <span class="paw left"></span>
+                  <span class="paw right"></span>
+                  <span class="tail"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mood-box">
+              <p class="mood-label">Feeling</p>
+              <strong id="moodLabel">Sleepy &amp; smug</strong>
+              <p id="moodText">Mochi is choosing a sunbeam over every chore.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="your-name-project" id="project">
+          <div class="project-heading">
+            <div>
+              <p class="eyebrow">Our project</p>
+              <h2>Team Project: Purrfectly Yours</h2>
+            </div>
+            <span class="project-badge">Built by <strong id="creatorName">Praval</strong></span>
+          </div>
+
+          <div class="project-layout">
+            <article class="project-card project-main">
+              <p class="project-description">
+                Purrfectly Yours is a collaborative cat community dashboard where our team tracks rescue stories,
+                care routines, and cozy moments that make everyday life feel more joyful. This project helps people
+                connect with adorable feline personalities while building a warm, welcoming experience for visitors.
+              </p>
+              <div class="project-metrics">
+                <div class="metric-box"><strong>08</strong><span>team members</span></div>
+                <div class="metric-box"><strong>14</strong><span>care plans</span></div>
+                <div class="metric-box"><strong>02</strong><span>live updates</span></div>
+              </div>
+            </article>
+            <aside class="project-card project-checklist">
+              <h3>Focus for this week</h3>
+              <ul>
+                <li><span>✓</span> Finalize cat profile cards</li>
+                <li><span>✓</span> Refine the care dashboard layout</li>
+                <li><span>•</span> Add more project storytelling</li>
+                <li><span>•</span> Review teamwork handoff notes</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section id="cats" class="cats">
+          <div class="section-heading">
+            <div><p class="eyebrow">Featured felines</p><h2>Meet the fluffiest locals</h2></div>
+            <a href="#care" class="inline-link">Treat time →</a>
+          </div>
+          <div class="cat-grid">
+            <article class="cat-card active" data-index="0">
+              <div class="card-icon">🐈</div><span class="cat-tag">Sun-seeker</span>
+              <h3>Mochi</h3><p>Soft paws, sleepy eyes, and a talent for stealing the warmest chair in the room.</p>
+              <button type="button" class="pet-button">Pet Mochi</button>
+            </article>
+            <article class="cat-card" data-index="1">
+              <div class="card-icon">🐈‍⬛</div><span class="cat-tag">Explorer</span>
+              <h3>Juniper</h3><p>Curious, dramatic, and always one jump away from a new adventure.</p>
+              <button type="button" class="pet-button">Pet Juniper</button>
+            </article>
+            <article class="cat-card" data-index="2">
+              <div class="card-icon">😺</div><span class="cat-tag">Chatterbox</span>
+              <h3>Maple</h3><p>Always ready to chat, pounce, and remind everyone who is boss.</p>
+              <button type="button" class="pet-button">Pet Maple</button>
+            </article>
+          </div>
+        </section>
+
+        <section id="care" class="care-board">
+          <div class="panel">
+            <p class="eyebrow">Daily care</p><h2>Today's cat checklist</h2>
+            <ul class="care-list">
+              <li class="done">Fresh water <span>✓</span></li>
+              <li class="done">Lifted the sunbeam blanket <span>✓</span></li>
+              <li class="pending">Scratch post rotation <span>•</span></li>
+              <li class="pending">Extra brushing <span>•</span></li>
+            </ul>
+          </div>
+          <div class="panel action-panel">
+            <p class="eyebrow">Cat lounge</p><h2>Quick joy meter</h2>
+            <div class="counter-row">
+              <div class="counter-box"><span id="fishCount">0</span><small>fish treats</small></div>
+              <div class="counter-box"><span id="loveCount">0</span><small>cuddles</small></div>
+            </div>
+            <button id="feedBtn" type="button">Serve a fish snack</button>
+            <button id="petBtn" class="secondary-btn" type="button">Pet the cat</button>
+            <button id="nextCatBtn" class="ghost-btn" type="button">Switch cat</button>
+          </div>
+        </section>
+
+        <section id="story" class="story">
+          <div class="section-heading"><div><p class="eyebrow">Why cats</p><h2>Life feels softer with whiskers around</h2></div></div>
+          <div class="story-grid">
+            <article class="story-card"><div class="story-icon">🧶</div><h3>Comfort first</h3><p>They turn a window seat into a kingdom and a blanket into pure luxury.</p></article>
+            <article class="story-card"><div class="story-icon">🎣</div><h3>Playful energy</h3><p>Every toy is an adventure, every cushion is a castle, and every hallway is a runway.</p></article>
+            <article class="story-card"><div class="story-icon">🌙</div><h3>Perfect pace</h3><p>They remind everyone that slow living is still living well.</p></article>
+          </div>
+        </section>
+      </main>
+
+      <footer><p>Made for purrs, naps, and dramatic staring contests.</p></footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
