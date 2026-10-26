@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halloween Spooktacular</title>
+  <style>
+    body {
+      background-color: black;
+      color: orange;
+      font-family: 'Creepster', cursive;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 50px;
+    }
+
+    .title {
+      font-size: 3rem;
+      text-shadow: 2px 2px 5px purple;
+    }
+
+    .description {
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    button {
+      background-color: orange;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: purple;
+      color: white;
+    }
+
+    #ghost {
+      font-size: 2rem;
+      margin-top: 20px;
+      animation: flicker 1.5s infinite;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎃 Welcome to the Haunted House 🎃</h1>
+    <p class="description">Prepare to be spooked! Click the button below... if you dare.</p>
+    <button id="spookyButton">Summon the Ghost</button>
+    <div id="ghost" class="hidden">👻 BOO! 👻</div>
+  </div>
+  <script>
+    document.getElementById('spookyButton').addEventListener('click', function() {
+      const ghost = document.getElementById('ghost');
+      ghost.classList.toggle('hidden');
+      playSpookySound();
+    });
+
+    function playSpookySound() {
+      const audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+      audio.play();
+    }
+  </script>
+</body>
+</html>
