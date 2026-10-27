@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guess the Word</title>
+    <meta
+      name="description"
+      content="A fun browser game where you guess the hidden word before the drawing is complete."
+    />
+    <link rel="stylesheet" href="guess-the-word.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="back-link" href="index.html">← Back to class gallery</a>
+        <span class="project-badge">Guess the Word</span>
+      </header>
+
+      <main class="project-layout">
+        <section class="game-panel" aria-labelledby="game-title">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Mini game</p>
+              <h1 id="game-title">Hidden Word</h1>
+            </div>
+            <div class="scoreboard" aria-live="polite">
+              <div class="score-box">
+                <span class="label">Lives</span>
+                <strong id="lives">6</strong>
+              </div>
+              <div class="score-box">
+                <span class="label">Category</span>
+                <strong id="category">-</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-area">
+            <div class="hangman-wrap" aria-live="polite">
+              <div class="hangman-scene" aria-label="Hangman drawing">
+                <div class="gallows">
+                  <span class="pole"></span>
+                  <span class="beam"></span>
+                  <span class="rope"></span>
+                </div>
+                <div class="figure">
+                  <span class="hangman-part part-head"></span>
+                  <span class="hangman-part part-body"></span>
+                  <span class="hangman-part part-left-arm"></span>
+                  <span class="hangman-part part-right-arm"></span>
+                  <span class="hangman-part part-left-leg"></span>
+                  <span class="hangman-part part-right-leg"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="word-panel">
+              <div id="word-display" class="word-display" aria-live="polite"></div>
+              <p id="status" class="status">Pick a letter or try the whole word.</p>
+            </div>
+          </div>
+
+          <form id="guess-form" class="guess-form">
+            <label class="sr-only" for="guess-input">Your guess</label>
+            <input
+              id="guess-input"
+              type="text"
+              maxlength="10"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Type a letter or word"
+            />
+            <button type="submit">Guess</button>
+            <button type="button" id="new-word-btn" class="secondary">New word</button>
+          </form>
+
+          <div class="used-letters-wrap">
+            <p class="used-label">Used letters</p>
+            <div id="used-letters" class="used-letters" aria-live="polite">—</div>
+          </div>
+        </section>
+
+        <aside class="info-panel">
+          <h2>How to play</h2>
+          <p>
+            Guess the hidden word by suggesting letters or trying the full answer.
+            Every wrong guess adds another part to the drawing, so watch your lives.
+          </p>
+          <ul>
+            <li>6 chances total</li>
+            <li>Letters are case-insensitive</li>
+            <li>Try to solve before the drawing is complete</li>
+          </ul>
+          <div class="mini-card">
+            <span class="mini-label">Goal</span>
+            <strong>Reveal the word before you run out of lives</strong>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="guess-the-word.js"></script>
+  </body>
+</html>
