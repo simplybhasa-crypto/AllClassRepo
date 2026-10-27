@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6ee">
+    <meta name="description" content="Norma's 7+ Math Lab: friendly explanations and practice for seventh-grade math.">
+    <title>Norma's 7+ Math Lab</title>
+    <link rel="stylesheet" href="norma.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="back-link" href="index.html">← Class project shelf</a>
+        <a class="wordmark" href="#home" aria-label="7+ Math Lab home"><span class="wordmark-mark" aria-hidden="true">7+</span> MATH LAB</a>
+        <span class="student-tag">A project by Norma</span>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Your friendly math practice spot</p>
+          <h1>Math makes<br>more <span>sense</span> here.</h1>
+          <p class="hero-intro">Build confidence with clear examples and quick practice made for 7th graders learning 7+ Math. Pick a topic and take it one step at a time.</p>
+          <a class="primary-button" href="#practice">Try a practice question <span aria-hidden="true">↓</span></a>
+          <p class="hero-note">No grades, no rush. Just practice.</p>
+        </div>
+        <div class="hero-art" aria-label="Colorful math symbols">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <span class="math-scribble scribble-plus" aria-hidden="true">+</span>
+          <span class="math-scribble scribble-times" aria-hidden="true">×</span>
+          <span class="math-scribble scribble-equals" aria-hidden="true">=</span>
+          <div class="hero-card">
+            <span class="hero-card-label">Today's reminder</span>
+            <strong>Every expert<br>was once a beginner.</strong>
+            <span class="hero-card-doodle" aria-hidden="true">✳</span>
+          </div>
+          <span class="hero-art-caption">LEARN · TRY · GROW</span>
+        </div>
+      </section>
+
+      <section class="topics-section" id="topics">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Choose your next step</p>
+              <h2>Math topics, made clearer.</h2>
+            </div>
+            <p class="section-intro">Start with a quick guide, then test what you know in the practice area below.</p>
+          </div>
+
+          <div class="topic-grid">
+            <article class="topic-card topic-fractions">
+              <div class="topic-top"><span class="topic-icon" aria-hidden="true">½</span><span class="topic-number">01 / NUMBER</span></div>
+              <h3>Fractions &amp; decimals</h3>
+              <p>Compare fractions, find equivalent values, and switch between fractions, decimals, and percents.</p>
+              <div class="example-box"><span>QUICK EXAMPLE</span><strong>¾ = 0.75 = 75%</strong></div>
+              <button class="topic-practice" type="button" data-topic="fractions">Practice fractions <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="topic-card topic-ratios">
+              <div class="topic-top"><span class="topic-icon" aria-hidden="true">∶</span><span class="topic-number">02 / RELATIONSHIPS</span></div>
+              <h3>Ratios &amp; rates</h3>
+              <p>Use ratios to compare amounts and unit rates to find the value for just one item.</p>
+              <div class="example-box"><span>QUICK EXAMPLE</span><strong>12 ÷ 3 = 4 per group</strong></div>
+              <button class="topic-practice" type="button" data-topic="ratios">Practice ratios <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="topic-card topic-algebra">
+              <div class="topic-top"><span class="topic-icon" aria-hidden="true">x + 1</span><span class="topic-number">03 / EXPRESSIONS</span></div>
+              <h3>Expressions &amp; equations</h3>
+              <p>Spot patterns, simplify expressions, and find the unknown by keeping both sides balanced.</p>
+              <div class="example-box"><span>QUICK EXAMPLE</span><strong>x + 5 = 12 → x = 7</strong></div>
+              <button class="topic-practice" type="button" data-topic="algebra">Practice algebra <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="topic-card topic-geometry">
+              <div class="topic-top"><span class="topic-icon" aria-hidden="true">△</span><span class="topic-number">04 / SHAPES</span></div>
+              <h3>Geometry</h3>
+              <p>Explore area, perimeter, and angle facts to solve problems about shapes and space.</p>
+              <div class="example-box"><span>QUICK EXAMPLE</span><strong>Area = length × width</strong></div>
+              <button class="topic-practice" type="button" data-topic="geometry">Practice geometry <span aria-hidden="true">→</span></button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="practice-section" id="practice">
+        <div class="shell practice-layout">
+          <div class="practice-copy">
+            <p class="eyebrow">A little practice goes a long way</p>
+            <h2>Ready for a<br><span>math minute?</span></h2>
+            <p>Choose a topic, solve the problem, and check your answer. If you get stuck, ask for a hint—learning is all about trying.</p>
+            <div class="practice-stats" aria-live="polite">
+              <div><strong id="score">0</strong><span>Correct</span></div>
+              <div><strong id="streak">0</strong><span>In a row</span></div>
+            </div>
+          </div>
+
+          <section class="quiz-card" aria-labelledby="question-title">
+            <div class="quiz-topline"><span class="quiz-label">YOUR PRACTICE</span><span class="question-count" id="question-count">Question 1</span></div>
+            <div class="topic-picker" role="group" aria-label="Choose a practice topic">
+              <button class="topic-chip is-selected" type="button" data-topic="fractions" aria-pressed="true">Fractions</button>
+              <button class="topic-chip" type="button" data-topic="ratios" aria-pressed="false">Ratios</button>
+              <button class="topic-chip" type="button" data-topic="algebra" aria-pressed="false">Algebra</button>
+              <button class="topic-chip" type="button" data-topic="geometry" aria-pressed="false">Geometry</button>
+            </div>
+            <div class="question-area">
+              <p class="question-topic" id="question-topic">FRACTIONS &amp; DECIMALS</p>
+              <h3 id="question-title">Loading your question…</h3>
+              <p class="question-hint" id="question-hint" hidden></p>
+            </div>
+            <form id="answer-form" novalidate>
+              <label class="answer-label" for="answer-input">Your answer</label>
+              <div class="answer-row">
+                <input id="answer-input" name="answer" type="text" inputmode="decimal" autocomplete="off" placeholder="Type an answer" aria-describedby="answer-feedback">
+                <button class="check-button" type="submit">Check it</button>
+              </div>
+              <p class="feedback" id="answer-feedback" role="status" aria-live="polite"></p>
+            </form>
+            <div class="quiz-actions">
+              <button class="hint-button" id="hint-button" type="button">Need a hint?</button>
+              <button class="next-button" id="next-button" type="button">Next question <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="brain-break-section" id="brain-break">
+        <div class="shell">
+          <div class="brain-break-heading">
+            <div>
+              <p class="eyebrow">Take a playful pause</p>
+              <h2>Brain break: <span>Pac-Man!</span></h2>
+            </div>
+            <p>Collect all the dots, dodge the ghost, and give your brain a little breather.</p>
+          </div>
+
+          <div class="arcade-card">
+            <div class="arcade-topbar">
+              <div>
+                <p class="arcade-label">NORMA'S MINI ARCADE</p>
+                <h3>Dot dash</h3>
+              </div>
+              <div class="arcade-score" aria-live="polite">
+                <span>DOTS</span>
+                <strong id="pacman-score">0 / 0</strong>
+              </div>
+            </div>
+
+            <div class="game-layout">
+              <div class="maze-wrap">
+                <canvas id="pacman-canvas" width="510" height="390" role="img" aria-label="Pac-Man maze. Use the arrow keys or direction buttons to collect every dot and avoid the ghost.">
+                  Your browser does not support the Pac-Man maze.
+                </canvas>
+                <p class="game-status" id="pacman-status" role="status" aria-live="polite">Press Start game when you're ready.</p>
+              </div>
+
+              <div class="game-sidebar">
+                <p class="game-instructions">Use the arrow keys or the buttons to move. Collect every dot and stay away from the ghost!</p>
+                <button class="start-game-button" id="pacman-start" type="button">Start game</button>
+                <div class="direction-pad" role="group" aria-label="Pac-Man direction controls">
+                  <button type="button" data-direction="up" aria-label="Move up">↑</button>
+                  <div>
+                    <button type="button" data-direction="left" aria-label="Move left">←</button>
+                    <button type="button" data-direction="down" aria-label="Move down">↓</button>
+                    <button type="button" data-direction="right" aria-label="Move right">→</button>
+                  </div>
+                </div>
+                <p class="control-hint">You can also use ↑ ↓ ← → on your keyboard.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <a class="wordmark footer-mark" href="#home"><span class="wordmark-mark" aria-hidden="true">7+</span> MATH LAB</a>
+        <p>Made with care by Norma · Keep asking, keep learning.</p>
+        <a class="footer-back" href="index.html">Back to the class shelf ↑</a>
+      </div>
+    </footer>
+
+    <script src="norma.js"></script>
+  </body>
+</html>
