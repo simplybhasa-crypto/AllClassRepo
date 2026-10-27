@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f2e9">
+  <meta name="description" content="Vivaan's visual guide to cell division, the cell cycle, and mitosis.">
+  <title>Cell Division | Vivaan</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f2f2e9;
+      --card: #fffef8;
+      --ink: #172a2a;
+      --muted: #627473;
+      --line: #cbd6cc;
+      --green: #b6d982;
+      --green-dark: #4a7157;
+      --coral: #e58b70;
+      --blue: #92b8c5;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    a { color: inherit; }
+    .page-shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .back-link, .project-label, .eyebrow, .stage-number, .mini-label { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .back-link { text-underline-offset: 4px; }
+    .project-label { color: var(--green-dark); }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: 48px; padding: 72px 0 62px; }
+    .eyebrow { margin: 0 0 18px; color: var(--green-dark); }
+    h1, h2, h3, p { letter-spacing: 0; }
+    h1 { max-width: 720px; margin: 0; font-family: var(--serif); font-size: clamp(52px, 8vw, 92px); font-weight: 400; line-height: .98; }
+    h1 span { color: var(--green-dark); }
+    .hero-copy > p:last-child { max-width: 650px; margin: 24px 0 0; color: #435553; font-size: 17px; line-height: 1.75; }
+    .cell-art { position: relative; display: grid; width: min(100%, 280px); aspect-ratio: 1; place-items: center; justify-self: center; border: 2px solid #799d78; border-radius: 48% 52% 43% 57% / 54% 43% 57% 46%; background: #dce9ca; box-shadow: inset 0 0 0 12px #eef2df, 0 15px 34px #233a2518; transform: rotate(-8deg); }
+    .cell-art::before { position: absolute; inset: 18%; border: 2px solid #a6a4c2; border-radius: 50%; background: #d9d4e4; content: ""; }
+    .cell-art::after { position: absolute; width: 43px; height: 43px; border: 2px solid #77749e; border-radius: 50%; background: #b8b2d1; content: ""; }
+    .organelle { position: absolute; z-index: 1; width: 28px; height: 12px; border: 2px solid #698c70; border-radius: 50%; background: #b7d18f; }
+    .organelle.one { top: 24%; left: 21%; transform: rotate(30deg); }
+    .organelle.two { right: 18%; bottom: 29%; transform: rotate(-25deg); }
+    .cell-caption { position: absolute; right: 0; bottom: -32px; left: 0; color: var(--muted); font-size: 11px; text-align: center; transform: rotate(8deg); }
+    main { padding-bottom: 70px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 20px; }
+    .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(30px, 4vw, 43px); font-weight: 400; }
+    .section-heading p { max-width: 370px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .cycle-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .cycle-step { min-height: 122px; padding: 18px; background: var(--card); }
+    .cycle-step strong { display: block; margin-bottom: 8px; color: var(--green-dark); font-family: var(--serif); font-size: 23px; font-weight: 400; }
+    .cycle-step span { color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .cycle-note { margin: 0; padding: 15px 18px; border-top: 1px solid var(--line); background: #e6eadb; color: #45554a; font-size: 13px; line-height: 1.7; }
+    .stages { margin-top: 66px; }
+    .stage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .stage-card { min-height: 230px; padding: 22px; border: 1px solid var(--line); background: var(--card); }
+    .stage-number { display: inline-grid; width: 33px; height: 33px; place-items: center; border-radius: 50%; background: var(--green); color: var(--ink); }
+    .stage-card:nth-child(3n + 2) .stage-number { background: #f1c0a9; }
+    .stage-card:nth-child(3n) .stage-number { background: #bdd3df; }
+    .stage-card h3 { margin: 18px 0 9px; font-family: var(--serif); font-size: 25px; font-weight: 400; }
+    .stage-card p { margin: 0; color: #52615e; font-size: 14px; line-height: 1.7; }
+    .stage-card strong { color: var(--green-dark); }
+    .finish-card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 26px; margin-top: 14px; padding: 24px; border: 1px solid #adc29c; background: #e5edd8; }
+    .finish-card h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 26px; font-weight: 400; }
+    .finish-card p { max-width: 760px; margin: 0; color: #4f5f52; font-size: 14px; line-height: 1.7; }
+    .two-cells { display: flex; gap: 8px; }
+    .two-cells span { display: block; width: 46px; height: 46px; border: 2px solid #638167; border-radius: 50%; background: radial-gradient(circle at center, #b8b2d1 0 18%, #dce9ca 20%); }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 66px; }
+    .compare article { padding: 24px; border-top: 4px solid var(--green-dark); background: var(--card); }
+    .compare article:last-child { border-color: var(--coral); }
+    .compare h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 25px; font-weight: 400; }
+    .compare p { margin: 0; color: #52615e; font-size: 14px; line-height: 1.75; }
+    .key-idea { margin-top: 34px; padding: 22px 24px; border-left: 4px solid var(--coral); background: #f4e3d7; color: #4c5049; font-size: 15px; line-height: 1.75; }
+    .key-idea strong { color: #7d4938; }
+    footer { border-top: 1px solid var(--line); }
+    .footer-line { display: flex; min-height: 68px; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 52px 0; }
+      .cell-art { width: 220px; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .cycle-band { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .page-shell { width: min(100% - 30px, 440px); }
+      .project-label { font-size: 9px; }
+      .stage-grid, .compare { grid-template-columns: 1fr; }
+      .finish-card { grid-template-columns: 1fr; }
+      .two-cells { justify-content: center; }
+      .footer-line { align-items: start; flex-direction: column; justify-content: center; padding: 15px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="page-shell">
+    <nav class="topbar" aria-label="Page navigation">
+      <a class="back-link" href="index.html">← Back to class gallery</a>
+      <span class="project-label">Vivaan · Biology</span>
+    </nav>
+  </header>
+
+  <section class="hero page-shell" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">A tiny cell has a big job</p>
+      <h1 id="page-title">Cell <span>division</span></h1>
+      <p>Every living thing is made of cells. When a cell grows and divides, it passes a copy of its DNA to new cells—helping organisms grow, repair tissues, and make more cells.</p>
+    </div>
+    <div class="cell-art" role="img" aria-label="A simple illustration of a cell with a nucleus and organelles">
+      <span class="organelle one"></span>
+      <span class="organelle two"></span>
+      <span class="cell-caption">A cell getting ready to divide</span>
+    </div>
+  </section>
+
+  <main class="page-shell">
+    <section aria-labelledby="cycle-title">
+      <div class="section-heading">
+        <h2 id="cycle-title">First, the cell cycle</h2>
+        <p>Most of a cell’s life is spent growing and preparing. Division is only one part of the full cycle.</p>
+      </div>
+      <div class="cycle-band">
+        <div class="cycle-step"><strong>G₁</strong><span>The cell grows and carries out its usual work.</span></div>
+        <div class="cycle-step"><strong>S</strong><span>The cell copies its DNA so each new cell can receive a set.</span></div>
+        <div class="cycle-step"><strong>G₂</strong><span>The cell grows more and checks its copied DNA.</span></div>
+        <div class="cycle-step"><strong>M phase</strong><span>The chromosomes separate, then the cell splits.</span></div>
+      </div>
+      <p class="cycle-note"><strong>Remember:</strong> Interphase includes G₁, S, and G₂. It is the preparation period—not one of the stages of mitosis.</p>
+    </section>
+
+    <section class="stages" aria-labelledby="mitosis-title">
+      <div class="section-heading">
+        <h2 id="mitosis-title">Mitosis, step by step</h2>
+        <p>Mitosis divides the nucleus. The stages are often remembered as PMAT, followed by cytokinesis.</p>
+      </div>
+      <div class="stage-grid">
+        <article class="stage-card">
+          <span class="stage-number">01</span>
+          <h3>Prophase</h3>
+          <p>DNA coils into visible <strong>chromosomes</strong>. The nuclear envelope starts to break down, and spindle fibers begin to form.</p>
+        </article>
+        <article class="stage-card">
+          <span class="stage-number">02</span>
+          <h3>Metaphase</h3>
+          <p>Chromosomes line up across the middle of the cell. Spindle fibers attach to them so they can be moved apart.</p>
+        </article>
+        <article class="stage-card">
+          <span class="stage-number">03</span>
+          <h3>Anaphase</h3>
+          <p>Sister chromatids separate and are pulled toward opposite ends of the cell. Once separated, each chromatid is considered a chromosome.</p>
+        </article>
+        <article class="stage-card">
+          <span class="stage-number">04</span>
+          <h3>Telophase</h3>
+          <p>A new nuclear envelope forms around each set of chromosomes. The chromosomes begin to uncoil.</p>
+        </article>
+        <article class="stage-card">
+          <span class="stage-number">05</span>
+          <h3>Cytokinesis</h3>
+          <p>The cytoplasm divides. In animal cells the membrane pinches inward; in plant cells a new cell plate forms.</p>
+        </article>
+        <article class="stage-card">
+          <span class="stage-number">06</span>
+          <h3>The result</h3>
+          <p>One parent cell has become <strong>two daughter cells</strong>, usually with the same number of chromosomes and matching DNA.</p>
+        </article>
+      </div>
+      <div class="finish-card">
+        <div>
+          <h3>One cell becomes two</h3>
+          <p>After mitosis separates the DNA, cytokinesis finishes the split. The new cells can grow and begin the cycle again.</p>
+        </div>
+        <div class="two-cells" role="img" aria-label="Two daughter cells"><span></span><span></span></div>
+      </div>
+    </section>
+
+    <section class="compare" aria-label="Why cells divide">
+      <article>
+        <h3>Mitosis: growth and repair</h3>
+        <p>Body cells use mitosis to replace worn-out or damaged cells and to help a multicellular organism grow. It usually makes two genetically similar cells.</p>
+      </article>
+      <article>
+        <h3>Meiosis: making sex cells</h3>
+        <p>Meiosis is a different kind of cell division. It makes sex cells with half the usual chromosome number, so fertilization can restore the full number.</p>
+      </article>
+    </section>
+
+    <aside class="key-idea">
+      <strong>The big idea:</strong> DNA is copied before division, then carefully shared. This keeps genetic instructions available in the new cells.
+    </aside>
+  </main>
+
+  <footer>
+    <div class="page-shell footer-line">
+      <span><strong>Vivaan’s biology page</strong> · Learn it, then draw it.</span>
+      <a href="index.html">Return to the class gallery ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
